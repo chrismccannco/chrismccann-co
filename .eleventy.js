@@ -6,6 +6,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("posts.json");
   eleventyConfig.addPassthroughCopy({ "netlify": "netlify" });
+    eleventyConfig.addPassthroughCopy("admin");
 
   // Sort essays collection by date descending
   eleventyConfig.addCollection("essays", function(collectionApi) {
