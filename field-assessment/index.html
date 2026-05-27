@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Field Assessment — Chris McCann</title>
+  <meta name="description" content="A leadership presence assessment. 12 questions across two dimensions: the internal state you bring into rooms, and the field you create around you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrismccann.co/field-assessment/">
+  <meta property="og:title" content="The Field Assessment — Chris McCann">
+  <meta property="og:description" content="A leadership presence assessment. 12 questions across two dimensions: the internal state you bring into rooms, and the field you create around you.">
+  <meta property="og:image" content="https://chrismccann.co/images/chris-mccann.jpg">
+  <meta property="og:site_name" content="Field Notes by Chris McCann">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Field Assessment — Chris McCann">
+  <meta name="twitter:description" content="A leadership presence assessment. 12 questions across two dimensions: the internal state you bring into rooms, and the field you create around you.">
+  <meta name="twitter:image" content="https://chrismccann.co/images/chris-mccann.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script defer src="https://plausible.io/js/pa-1yHKOJGHS7zJOVBFS4N-l.js"></script>
+  <style>
+    :root {
+      --black: #1a1a1a;
+      --white: #faf9f7;
+      --gray: #666;
+      --light-gray: #e8e6e2;
+      --accent: #2C5F4F;
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 18px; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--serif);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- PROGRESS BAR --- */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+      z-index: 1000;
+    }
+
+    /* --- CONTAINER --- */
+    .assessment-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* --- SCREEN (each question/page) --- */
+    .screen {
+      display: none;
+      width: 100%;
+      animation: fadeIn 0.4s ease-out;
+    }
+    .screen.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- INTRO SCREEN --- */
+    .intro-title {
+      font-family: var(--sans);
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .intro-subtitle {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--gray);
+      font-style: italic;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .intro-meta {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    /* --- QUESTION --- */
+    .question-section-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .question-counter {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    .question-text {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    /* --- OPTIONS --- */
+    .options { list-style: none; }
+    .option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 1px solid var(--light-gray);
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--black);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1.5;
+    }
+    .option:hover {
+      border-color: var(--accent);
+      background: rgba(44, 95, 79, 0.04);
+    }
+    .option .option-key {
+      font-weight: 600;
+      color: var(--accent);
+      margin-right: 10px;
+      display: inline-block;
+      width: 20px;
+    }
+    .option.selected {
+      border-color: var(--accent);
+      background: rgba(44, 95, 79, 0.08);
+    }
+
+    /* --- SECTION TRANSITION --- */
+    .section-transition-title {
+      font-family: var(--sans);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-transition-desc {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--black);
+      border: 2px solid var(--black);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: transparent;
+      color: var(--black);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--black);
+    }
+    .btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* --- RESULTS --- */
+    .result-band-title {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .result-band-name {
+      font-family: var(--sans);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .result-description {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .result-italic {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+    .result-dimension {
+      border-top: 1px solid var(--light-gray);
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .result-dimension-title {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+    .result-dimension-bar-track {
+      height: 6px;
+      background: var(--light-gray);
+      width: 100%;
+      margin-bottom: 0.3rem;
+    }
+    .result-dimension-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 1s ease-out;
+    }
+    .result-dimension-score {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    .result-cta-section {
+      border-top: 1px solid var(--light-gray);
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+    .result-cta-text {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .result-cta-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    .result-cta-links a {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+      display: inline-block;
+    }
+    .result-cta-links a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* --- NAV HINT --- */
+    .nav-hint {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--light-gray);
+      margin-top: 2rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-hint kbd {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 1px solid var(--light-gray);
+      font-family: var(--sans);
+      font-size: 0.65rem;
+    }
+
+    /* --- READING LIST --- */
+    .reading-list {
+      margin-top: 2rem;
+      border-top: 1px solid var(--light-gray);
+      padding-top: 2rem;
+    }
+    .reading-list-label {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .reading-item {
+      margin-bottom: 1.75rem;
+    }
+    .reading-item a {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 1px;
+      transition: border-color 0.2s ease;
+    }
+    .reading-item a:hover {
+      border-bottom-color: var(--accent);
+    }
+    .reading-item .reading-reason {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--gray);
+      font-style: italic;
+      margin-top: 0.35rem;
+      line-height: 1.6;
+    }
+    .upcoming-piece {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--light-gray);
+    }
+    .upcoming-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+    .upcoming-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+    }
+    .upcoming-desc {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* --- BACK LINK --- */
+    .back-to-site {
+      position: fixed;
+      top: 1.5rem;
+      left: 1.5rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      z-index: 100;
+      transition: color 0.2s ease;
+    }
+    .back-to-site:hover { color: var(--black); }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .intro-title { font-size: 1.8rem; }
+      .question-text { font-size: 1.2rem; }
+      .back-to-site { position: relative; top: 0; left: 0; margin-bottom: 1rem; display: block; }
+      .assessment-container { padding: 1.5rem; justify-content: flex-start; padding-top: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .screen { animation: none !important; }
+      .progress-bar { transition: none !important; }
+      .result-dimension-bar-fill { transition: none !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "name": "The Field Assessment",
+    "url": "https://chrismccann.co/field-assessment",
+    "description": "A 12-question leadership self-assessment measuring two dimensions: your internal state and the field your team operates in.",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Field Assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 12-question self-assessment for leaders. It measures two dimensions: your internal state (how you show up) and your field (what happens around you when you are not trying to make something happen). Takes about 5 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the Field Assessment measure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Part A measures your state: self-awareness, somatic awareness, emotional regulation, presence in meetings, and recovery after hard conversations. Part B measures your field: team attention quality, how fast truth travels, conflict resolution, alignment, onboarding clarity, and whether what matters shows up in your metrics."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the three result bands?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Operating on Autopilot (score 9-27): The calendar is full, the metrics are moving, and something is off but hard to name. Paying Attention (score 28-44): You have started catching things most leaders miss, but the habits have not fully caught up with the awareness. Holding the Field (score 45-63): Your presence changes rooms and your team has a coherence that is hard to put on a slide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after I complete the assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You get your result immediately with a breakdown of your state and field scores. You can enter your email to receive a short breakdown specific to your band, including what it means in practice and one thing to try that week."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is the Field Assessment for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Leaders in tech and sales who suspect the variable might be them. People who have done the management training and read the books but sense that something underneath the metrics matters more than they were told."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;">Skip to content</a>
+
+  <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Assessment progress"></div>
+  <a href="/" class="back-to-site">&larr; chrismccann.co</a>
+
+  <main id="main-content">
+  <div class="assessment-container">
+
+    <!-- INTRO -->
+    <div class="screen active" id="screen-intro">
+      <h1 class="intro-title">The Field Assessment</h1>
+      <div class="intro-subtitle">Your state. Your team's field. Twelve questions across both.</div>
+      <div class="intro-meta">12 questions &nbsp;/&nbsp; 5 minutes &nbsp;/&nbsp; 2 dimensions</div>
+      <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">Go with your gut. Pick the answer that's actually true, not the one that sounds like growth.</p>
+      <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 2.5rem;">Twelve questions and whatever they show you.</p>
+      <div class="intro-description" style="margin: 1.5rem 0; max-width: 540px; line-height: 1.7; color: var(--text-secondary, #555);">
+        <p style="margin-bottom: 0.75rem;">Most leadership assessments measure skills and styles. This one measures something different: the quality of presence you bring into rooms, and what you create in your team without realizing it.</p>
+        <p style="margin-bottom: 0.75rem;">Leaders carry their internal state into every meeting, every one-on-one, every decision under pressure. Your team reads it in your tone, your pace, what you leave unsaid. The Field Assessment helps you see both sides: what you are bringing, and what is forming in the field around you.</p>
+        <p>No scores to game. No profiles to perform. Twelve questions, two dimensions, and whatever they show you about where you actually are right now.</p>
+      </div>
+      <button class="btn" onclick="startAssessment()">Begin</button>
+    </div>
+
+    <!-- SECTION A TRANSITION -->
+    <div class="screen" id="screen-section-a">
+      <div class="section-transition-title">Part A: Your State</div>
+      <div class="section-transition-desc">What you bring into the room before anyone says a word.</div>
+      <button class="btn" onclick="showQuestion(0)">Continue</button>
+    </div>
+
+    <!-- QUESTIONS (rendered by JS) -->
+    <div class="screen" id="screen-question">
+      <div class="question-section-label" id="qSectionLabel"></div>
+      <div class="question-counter" id="qCounter"></div>
+      <div class="question-text" id="qText"></div>
+      <div class="options" id="qOptions" role="radiogroup" aria-label="Answer options"></div>
+      <div class="nav-hint">Press <kbd>A</kbd> <kbd>B</kbd> <kbd>C</kbd> <kbd>D</kbd> <kbd>E</kbd> to answer</div>
+    </div>
+
+    <!-- SECTION B TRANSITION -->
+    <div class="screen" id="screen-section-b">
+      <div class="section-transition-title">Part B: Your Field</div>
+      <div class="section-transition-desc">What happens around you when you're not trying to make something happen.</div>
+      <button class="btn" onclick="showQuestion(6)">Continue</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="screen" id="screen-results">
+      <div class="result-band-title" id="resBandLabel">Your Results</div>
+      <div class="result-band-name" id="resBandName" style="font-size: 1.8rem; margin-bottom: 1.5rem;"></div>
+      <div class="result-description" id="resBandDesc"></div>
+      <div class="result-italic" id="resBandItalic"></div>
+
+      <div class="result-dimension">
+        <div class="result-dimension-title" id="labelBarA">Part A: Your State</div>
+        <div class="result-dimension-bar-track" role="meter" aria-labelledby="labelBarA" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30" id="meterA">
+          <div class="result-dimension-bar-fill" id="barA" style="width: 0%"></div>
+        </div>
+        <div class="result-dimension-score" id="scoreA" aria-live="polite"></div>
+      </div>
+
+      <div class="result-dimension">
+        <div class="result-dimension-title" id="labelBarB">Part B: Your Field</div>
+        <div class="result-dimension-bar-track" role="meter" aria-labelledby="labelBarB" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30" id="meterB">
+          <div class="result-dimension-bar-fill" id="barB" style="width: 0%"></div>
+        </div>
+        <div class="result-dimension-score" id="scoreB" aria-live="polite"></div>
+      </div>
+
+      <div class="result-italic" id="resDimensionNote"></div>
+
+      <!-- PERSONALIZED READING LIST -->
+      <div class="reading-list" id="readingList"></div>
+
+      <!-- UPCOMING CONTENT TEASER -->
+      <div class="upcoming-piece" id="upcomingPiece"></div>
+
+      <!-- SUBSCRIBE -->
+      <div class="result-cta-section" style="margin-top: 2.5rem; padding-top: 2rem;">
+        <p style="font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">Go deeper on this</p>
+        <p style="font-family: var(--serif); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem;" id="subscribeCopy"></p>
+        <div id="subscribe-form-wrap" style="margin-bottom: 2.5rem; text-align: center;">
+          <form id="assessmentSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
+            <input type="email" id="subEmail" required placeholder="Your email" aria-label="Email address"
+              style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
+            <button type="submit" id="subBtn"
+              style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">Send it</button>
+          </form>
+          <div id="subSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">Check your inbox. Your breakdown is on its way.</div>
+          <div id="subError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
+        </div>
+        <div style="border-top: 1px solid var(--light-gray); padding-top: 2rem;">
+          <div class="result-cta-links">
+            <a href="/field-notes/">All Field Notes &rarr;</a>
+            <a href="/retreats/">Explore a retreat &rarr;</a>
+            <a href="mailto:chris@chrismccann.co">Send a note &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </main>
+
+<script>
+const questions = [
+  // Part A: Your State
+  // Q1 — highest at E (ascending baseline)
+  {
+    section: "A",
+    text: "You walk into a meeting. Are you aware of the mood you\u2019re bringing with you?",
+    options: [
+      "Honestly, no. I\u2019m thinking about the agenda.",
+      "Sometimes. I usually figure it out once I\u2019m already in there.",
+      "Usually. I notice when something feels off before I walk in.",
+      "Yes. I can usually settle before I sit down.",
+      "It\u2019s automatic now. I check in on the way there."
+    ]
+  },
+  // Q2 — highest at A
+  {
+    section: "A",
+    text: "Something breaks on your team. What\u2019s the first thing that happens inside you?",
+    options: [
+      "Genuine curiosity about what\u2019s actually going on.",
+      "Something registers. Then I figure out what to do.",
+      "I notice the adrenaline and let it pass before I do anything.",
+      "My first thought is who caused this.",
+      "Already fixing it. Time for feelings later."
+    ]
+  },
+  // Q3 — highest at B
+  {
+    section: "A",
+    text: "Your body has been sending you signals all week. The tight jaw. The shallow breathing. The thing in your stomach before the Monday standup. How much of that are you catching?",
+    options: [
+      "Honestly, I don\u2019t track that. I\u2019m in my head, not my body.",
+      "Constantly. My body registers things before my mind catches up.",
+      "A few times a week something surfaces. I\u2019m starting to pay attention.",
+      "Most days. I\u2019ve started treating it as information, not noise.",
+      "Only when it gets loud enough that it starts affecting my work."
+    ]
+  },
+  // Q4 — highest at C
+  {
+    section: "A",
+    text: "Someone on your team is struggling. How do you find out?",
+    options: [
+      "Their manager tells me. Or HR.",
+      "They come to me early. They know it won\u2019t become a problem.",
+      "I feel it in the room before I can point to anything specific.",
+      "Their numbers drop and I connect the dots.",
+      "Something changes in how they show up. I catch it before anyone flags it."
+    ]
+  },
+  // Q5 — highest at A
+  {
+    section: "A",
+    text: "It gets quiet in a meeting. Like, actually quiet. What do you do?",
+    options: [
+      "I trust it. I\u2019ve seen what comes through when no one rushes to fill it.",
+      "I fill it. Silence feels like something\u2019s wrong.",
+      "I\u2019m getting better at letting it sit.",
+      "I wait, but I\u2019m counting the seconds.",
+      "I\u2019ve stopped trying to manage it. The quiet is usually where the real conversation starts."
+    ]
+  },
+  // Q6 — highest at C
+  {
+    section: "A",
+    text: "You just had a hard conversation. Someone\u2019s upset. Maybe you are too. How long until you\u2019re back to solid ground?",
+    options: [
+      "Hours. Sometimes days. It loops.",
+      "A while. I move forward but it keeps resurfacing.",
+      "I don\u2019t lose the ground anymore. I just get quieter.",
+      "Under an hour, usually. I know how to come back to myself.",
+      "I can hold it and still function. That took years."
+    ]
+  },
+  // Part B: Your Field
+  // Q7 — highest at E (ascending)
+  {
+    section: "B",
+    text: "Your team is in a room together. What\u2019s the attention like?",
+    options: [
+      "Half the room is on their laptop. The other half wishes they were.",
+      "Functional. People are present enough to not get called out.",
+      "Focused. People actually track what\u2019s being said.",
+      "The room has a pulse. People pick up what isn\u2019t said as much as what is.",
+      "There\u2019s a weight to it. People are thinking together, not just listening."
+    ]
+  },
+  // Q8 — highest at B
+  {
+    section: "B",
+    text: "How fast does the truth travel on your team? Not the Slack version. The real version.",
+    options: [
+      "Slowly. I\u2019m usually the last to know the thing that matters.",
+      "Almost instantly. The signal is clean.",
+      "Reliably. The right people hear the right things.",
+      "Fast. People surface what matters without being asked.",
+      "It moves, but it gets edited on the way."
+    ]
+  },
+  // Q9 — highest at A
+  {
+    section: "B",
+    text: "Two people on your team have a problem with each other. What happens next?",
+    options: [
+      "The team has a way of working through it. Imperfect but real.",
+      "Nothing. It just sits there, leaking into everything.",
+      "Eventually someone names it. Takes longer than it should.",
+      "The team names it fast. Not because it\u2019s comfortable, but because leaving it unaddressed is worse.",
+      "It shows up sideways. Passive comments. Threads that didn\u2019t need to exist."
+    ]
+  },
+  // Q10 — highest at C
+  {
+    section: "B",
+    text: "Forget the dashboard for a second. Does your team actually agree on what matters right now?",
+    options: [
+      "People are working on three different versions of the priority.",
+      "Yes. People make decisions without checking in because they already know.",
+      "It\u2019s beyond alignment. The team moves before anyone calls the play.",
+      "Aligned on the slide. Not in the hallway.",
+      "Mostly. With some drift at the edges."
+    ]
+  },
+  // Q11 — highest at D
+  {
+    section: "B",
+    text: "A new person joins your team. How long before they understand how things actually work? Not the org chart. The real map.",
+    options: [
+      "Months. And some people never fully figure it out.",
+      "A while. The team is warm, but how things actually work takes time to learn.",
+      "A few weeks. They figure it out with some help.",
+      "Quickly. The way the team operates is pretty readable.",
+      "Almost immediately. People tell me the culture is the first thing they felt."
+    ]
+  },
+  // Q12 — highest at A
+  {
+    section: "B",
+    text: "How much of what actually matters on your team shows up in a metric somewhere?",
+    options: [
+      "The team has words for the things the spreadsheet can\u2019t hold.",
+      "The numbers look fine. The team doesn\u2019t. Nobody\u2019s talking about that gap.",
+      "Some of it. The rest is gut and conversation.",
+      "The numbers capture what happened. Not why.",
+      "Most of it. The team tracks health, not just output."
+    ]
+  }
+];
+
+const answers = new Array(12).fill(null);
+const rawSelections = new Array(12).fill(null); // tracks which option (1-5) was picked for UI
+let currentQuestion = -1;
+const keys = ['A', 'B', 'C', 'D', 'E'];
+const totalScreens = 15; // intro + sectionA + 6q + sectionB + 6q + results
+
+// Scoring: each question gets a custom point map [A, B, C, D, E]
+// Not all questions scale linearly A=1..E=5. This prevents gaming.
+// Scoring: each question gets a custom point map [A, B, C, D, E]
+// Highest score position rotates A/B/C/D/E — no detectable pattern.
+const scoring = [
+  [1, 2, 3, 4, 5],  // Q1: A=low→E=high. Mood awareness.
+  [5, 4, 3, 1, 2],  // Q2: A=curious(5), B=pause(4), C=somatic(3), D=blame(1), E=fix(2)
+  [1, 5, 3, 4, 2],  // Q3: A=unaware(1), B=always(5), C=sometimes(3), D=often(4), E=loud(2)
+  [1, 4, 5, 2, 3],  // Q4: A=HR(1), B=tell-early(4), C=feel-shift(5), D=numbers(2), E=behavior(3)
+  [5, 1, 3, 2, 4],  // Q5: A=trust(5), B=fill(1), C=getting-better(3), D=count-seconds(2), E=manage(4)
+  [1, 2, 5, 3, 4],  // Q6: A=loops(1), B=resurfaces(2), C=quiet-ground(5), D=reset(3), E=hold(4)
+  [1, 2, 3, 4, 5],  // Q7: A=low→E=high. Team attention quality.
+  [1, 5, 3, 4, 2],  // Q8: A=last-to-know(1), B=instant(5), C=reliably(3), D=fast(4), E=edited(2)
+  [5, 1, 3, 4, 2],  // Q9: A=team-way(5), B=sits(1), C=eventually(3), D=names-fast(4), E=sideways(2)
+  [1, 4, 5, 2, 3],  // Q10: A=3-versions(1), B=know(4), C=brain(5), D=slide(2), E=mostly(3)
+  [1, 2, 3, 5, 4],  // Q11: A=months(1), B=warm-opaque(2), C=weeks(3), D=readable(5), E=immediately(4)
+  [5, 1, 2, 3, 4],  // Q12: A=words(5), B=numbers-fine(1), C=some-gut(2), D=captured(3), E=health(4)
+];
+
+function trackEvent(event, props) {
+  try {
+    if (typeof window.plausible === 'function') {
+      window.plausible(event, { props: props || {} });
+    }
+  } catch(e) {}
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.add('active');
+    // Re-trigger animation
+    el.style.animation = 'none';
+    el.offsetHeight;
+    el.style.animation = '';
+  }
+}
+
+function updateProgress(step) {
+  const pct = Math.round((step / totalScreens) * 100);
+  const bar = document.getElementById('progressBar');
+  bar.style.width = pct + '%';
+  bar.setAttribute('aria-valuenow', pct);
+}
+
+function startAssessment() {
+  trackEvent('Assessment Started');
+  showScreen('screen-section-a');
+  updateProgress(1);
+}
+
+function showQuestion(index) {
+  currentQuestion = index;
+  const q = questions[index];
+  const qNum = index + 1;
+
+  document.getElementById('qSectionLabel').textContent =
+    q.section === 'A' ? 'Part A: Your State' : 'Part B: Your Field';
+  document.getElementById('qCounter').textContent = qNum + ' of 12';
+  document.getElementById('qText').textContent = q.text;
+
+  const optionsEl = document.getElementById('qOptions');
+  optionsEl.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.setAttribute('role', 'radio');
+    btn.setAttribute('aria-checked', rawSelections[index] === i + 1 ? 'true' : 'false');
+    btn.innerHTML = '<span class="option-key">' + keys[i] + '</span>' + opt;
+    btn.onclick = () => selectAnswer(index, i + 1);
+    if (rawSelections[index] === i + 1) {
+      btn.classList.add('selected');
+    }
+    optionsEl.appendChild(btn);
+  });
+
+  showScreen('screen-question');
+
+  // Progress: intro(0) + sectionA(1) + questions offset
+  let step;
+  if (index < 6) {
+    step = 2 + index;
+  } else {
+    step = 3 + index; // +1 for sectionB screen
+  }
+  updateProgress(step);
+}
+
+function selectAnswer(qIndex, value) {
+  // value is 1-indexed option (1=A, 2=B, etc.)
+  rawSelections[qIndex] = value; // for UI selected state
+  // Store the scored value using the scoring map
+  answers[qIndex] = scoring[qIndex][value - 1];
+
+  trackEvent('Question Answered', {
+    question: qIndex + 1,
+    section: questions[qIndex].section,
+    value: value
+  });
+
+  // Brief delay for feedback
+  const optEls = document.querySelectorAll('.option');
+  optEls.forEach((o, i) => {
+    const isSelected = i === value - 1;
+    o.classList.toggle('selected', isSelected);
+    o.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+  });
+
+  setTimeout(() => {
+    const next = qIndex + 1;
+    if (next === 6) {
+      // Show section B transition
+      showScreen('screen-section-b');
+      updateProgress(8);
+    } else if (next === 12) {
+      // Show results
+      showResults();
+    } else {
+      showQuestion(next);
+    }
+  }, 300);
+}
+
+// Content library for personalized recommendations
+const readingMap = {
+  autopilot: [
+    { url: '/field-notes/your-body-knows-before-you-do', title: 'Your Body Knows Before You Do', reason: 'The signal is already there. This is about learning to read it.' },
+    { url: '/field-notes/in-the-fog', title: 'In the Fog', reason: 'What it looks like from inside when the performance is working but the person isn\u2019t.' },
+    { url: '/field-notes/only-as-good-as-your-last-deal', title: 'Only As Good As Your Last Deal', reason: 'When identity fuses with the metric, everything else goes quiet.' }
+  ],
+  paying_attention: [
+    { url: '/field-notes/you-dont-need-ayahuasca', title: 'You Don\u2019t Need Ayahuasca. You Need to Pay Attention.', reason: 'The recalibration doesn\u2019t need to be dramatic. It needs to be consistent.' },
+    { url: '/field-notes/the-one-minute-test', title: 'The One-Minute Test', reason: 'Awareness without practice is just spectatorship. This is about doing something with it.' },
+    { url: '/field-notes/the-space-i-didnt-ask-for', title: 'The Space I Didn\u2019t Ask For', reason: 'What happens when the noise stops and the questions finally have room.' }
+  ],
+  holding_the_field: [
+    { url: '/field-notes/sales-leadership-and-the-search', title: 'Sales Leadership and the Search', reason: 'The question underneath the question. Where this started to get honest.' },
+    { url: '/field-notes/what-failure-actually-costs', title: 'What Failure Actually Costs', reason: 'The cost of getting here is real. Nobody talks about that part.' },
+    { url: '/field-notes/the-call-of-the-wild', title: 'The Call of the Wild', reason: 'Space, not insight. Sometimes the practice is just being somewhere with nothing to fix.' }
+  ]
+};
+
+// Dimension gap bonus picks
+const gapReading = {
+  state_ahead: { url: '/field-notes/youre-new-were-burnt-out', title: 'You\u2019re New. We\u2019re Burnt Out.', reason: 'When your awareness is ahead of the room, this is what it feels like from their side.' },
+  field_ahead: { url: '/field-notes/your-body-knows-before-you-do', title: 'Your Body Knows Before You Do', reason: 'The team built something strong. The next edge is turning that attention inward.' }
+};
+
+// Upcoming content teasers by band
+const upcomingMap = {
+  autopilot: { title: 'The Room Remembers', desc: 'How the state you brought into yesterday\u2019s meeting is still in the room today. I\u2019m writing this now.' },
+  paying_attention: { title: 'What Your Team Won\u2019t Tell You', desc: 'The gap between thinking you\u2019re approachable and actually being approached. Still working through this one.' },
+  holding_the_field: { title: 'The Metric Underneath the Metric', desc: 'What the dashboard can\u2019t measure and why it matters more than what it can. Coming soon.' }
+};
+
+// Subscribe copy by band
+const subscribeCopyMap = {
+  autopilot: 'I\u2019ll send a short breakdown of what this result means in practice, one thing to try this week, and the essay above when it\u2019s finished.',
+  paying_attention: 'I\u2019ll send a breakdown specific to your result, what the gap between noticing and doing actually looks like, and the essay above when it\u2019s done.',
+  holding_the_field: 'I\u2019ll send a short note on what I\u2019ve seen at this level, the thing most leaders here still miss, and the essay above when it\u2019s ready.'
+};
+
+function showResults() {
+  const scoreA = answers.slice(0, 6).reduce((a, b) => a + b, 0);
+  const scoreB = answers.slice(6, 12).reduce((a, b) => a + b, 0);
+  const total = scoreA + scoreB;
+
+  // Determine band
+  let bandName, bandDesc, bandItalic, bandKey;
+  if (total <= 27) {
+    bandKey = 'autopilot';
+    bandName = 'Operating on Autopilot';
+    bandDesc = 'The calendar is full. The metrics are moving. The team is functional. And something is off, but you can\u2019t name it. I lived here for years. Performing presence while my mind ran its loops. The body knew. I just wasn\u2019t listening.';
+    bandItalic = 'Most leaders stay here longer than they think. The fact that you took this is already different.';
+  } else if (total <= 44) {
+    bandKey = 'paying_attention';
+    bandName = 'Paying Attention';
+    bandDesc = 'You\u2019ve started catching things most leaders miss. The pause before the reaction. The shift in the room when someone checks out. The gap between what the dashboard says and what the team actually feels. This is the hardest band to stay in, because the awareness is there but the habits haven\u2019t fully caught up.';
+    bandItalic = 'The question now isn\u2019t whether you\u2019re noticing. It\u2019s what you do with what you see.';
+  } else {
+    bandKey = 'holding_the_field';
+    bandName = 'Holding the Field';
+    bandDesc = 'Your presence changes rooms and your team has a coherence that\u2019s hard to put on a slide. People want to work with you. They can\u2019t always say why. You\u2019ve built a relationship with the thing underneath the metrics. This isn\u2019t a destination. It\u2019s a practice. The leaders I respect most at this level are the ones who still think they\u2019re learning.';
+    bandItalic = 'Most leaders here are ready for a conversation they can\u2019t have at work.';
+  }
+
+  // Dimension comparison
+  let dimensionNote, gapKey;
+  const diff = Math.abs(scoreA - scoreB);
+  if (diff <= 3) {
+    gapKey = null;
+    dimensionNote = 'Your internal state and your team\u2019s field are in sync. That\u2019s uncommon and worth protecting.';
+  } else if (scoreA > scoreB) {
+    gapKey = 'state_ahead';
+    dimensionNote = 'Your personal awareness is running ahead of your team\u2019s coherence. You can see what\u2019s off. They can\u2019t yet. That gap is where most leadership frustration lives.';
+  } else {
+    gapKey = 'field_ahead';
+    dimensionNote = 'Your team is strong, possibly stronger than you realize. The next edge is your own practice. The team built itself around something. Worth asking what.';
+  }
+
+  document.getElementById('resBandName').textContent = bandName;
+  document.getElementById('resBandDesc').textContent = bandDesc;
+  document.getElementById('resBandItalic').textContent = bandItalic;
+  document.getElementById('resDimensionNote').textContent = dimensionNote;
+
+  // Build personalized reading list
+  const readings = [...readingMap[bandKey]];
+  if (gapKey && gapReading[gapKey]) {
+    // Add gap pick if it's not already in the band list
+    const gapPick = gapReading[gapKey];
+    if (!readings.find(r => r.url === gapPick.url)) {
+      readings.push(gapPick);
+    }
+  }
+
+  const readingListEl = document.getElementById('readingList');
+  let readingHTML = '<div class="reading-list-label">Based on your result</div>';
+  readings.forEach(r => {
+    readingHTML += '<div class="reading-item">';
+    readingHTML += '<a href="' + r.url + '">' + r.title + ' \u2192</a>';
+    readingHTML += '<div class="reading-reason">' + r.reason + '</div>';
+    readingHTML += '</div>';
+  });
+  readingListEl.innerHTML = readingHTML;
+
+  // Build upcoming content teaser
+  const upcoming = upcomingMap[bandKey];
+  const upcomingEl = document.getElementById('upcomingPiece');
+  upcomingEl.innerHTML = '<div class="upcoming-label">Something I\u2019m writing now</div>' +
+    '<div class="upcoming-title">' + upcoming.title + '</div>' +
+    '<div class="upcoming-desc">' + upcoming.desc + '</div>';
+
+  // Set subscribe copy
+  document.getElementById('subscribeCopy').textContent = subscribeCopyMap[bandKey];
+
+  showScreen('screen-results');
+  updateProgress(totalScreens);
+
+  // Animate bars after a tick
+  requestAnimationFrame(() => {
+    document.getElementById('barA').style.width = ((scoreA / 30) * 100) + '%';
+    document.getElementById('barB').style.width = ((scoreB / 30) * 100) + '%';
+    document.getElementById('meterA').setAttribute('aria-valuenow', scoreA);
+    document.getElementById('meterB').setAttribute('aria-valuenow', scoreB);
+    document.getElementById('scoreA').textContent = scoreA + ' of 30';
+    document.getElementById('scoreB').textContent = scoreB + ' of 30';
+  });
+
+  trackEvent('Assessment Completed', {
+    total: total,
+    scoreA: scoreA,
+    scoreB: scoreB,
+    band: bandName
+  });
+}
+
+// Subscribe form: passes assessment data to Beehiiv via Netlify Function
+document.getElementById('assessmentSubscribe').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('subEmail').value.trim();
+  if (!email) return;
+
+  const btn = document.getElementById('subBtn');
+  const successEl = document.getElementById('subSuccess');
+  const errorEl = document.getElementById('subError');
+
+  btn.textContent = '...';
+  btn.disabled = true;
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  const scoreA = answers.slice(0, 6).reduce((a, b) => a + b, 0);
+  const scoreB = answers.slice(6, 12).reduce((a, b) => a + b, 0);
+  const total = scoreA + scoreB;
+  const band = total <= 27 ? 'autopilot' : total <= 44 ? 'paying_attention' : 'holding_the_field';
+
+  try {
+    const res = await fetch('/.netlify/functions/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        result_band: band,
+        score_total: total,
+        score_state: scoreA,
+        score_field: scoreB
+      })
+    });
+
+    if (res.ok) {
+      document.getElementById('assessmentSubscribe').style.display = 'none';
+      successEl.style.display = 'block';
+      trackEvent('Assessment Subscribed', { band: band, total: total });
+    } else {
+      errorEl.style.display = 'block';
+      btn.textContent = 'Subscribe';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    errorEl.style.display = 'block';
+    btn.textContent = 'Subscribe';
+    btn.disabled = false;
+  }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  const key = e.key.toUpperCase();
+  const questionScreen = document.getElementById('screen-question');
+  if (!questionScreen.classList.contains('active')) return;
+  if (currentQuestion < 0) return;
+
+  const idx = keys.indexOf(key);
+  if (idx !== -1) {
+    selectAnswer(currentQuestion, idx + 1);
+  }
+});
+</script>
+
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5OWNmNDhhNjU2MDU5MGVjZmNkMTkyNiIsImlzc3VlciI6Im5mc2VydmVyIn0.HC4XdgWSIZNKg-aKZnJOsp3M6GOJx9T6kO5p1qHZ3n4"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5OWNmZDU4Yjg2OWZkMjZlY2NjOTE5MCIsImlzc3VlciI6Im5mc2VydmVyIn0.yEmpoOoT0lpqylQm-_kJrVx_K5HfpPNITTy4ctw7G3w"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5OWQ0MTdhNjE1NjlhZjQzYTEwZDc3MiIsImlzc3VlciI6Im5mc2VydmVyIn0.xcXk7m2IObeMcNgaELl2lg-IXNdNYEfb_pAP7294H08"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5OWUxYjhjNTQxZjkyMDc4YzI0Yzg1MCIsImlzc3VlciI6Im5mc2VydmVyIn0.Rw8AMxn5UvA2dU9QZnL0DqwSCFjaHNh8ZVqsauA_h6E"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5YWQ5N2NiNzA3MTcxMTY1Y2Y4OTZlOSIsImlzc3VlciI6Im5mc2VydmVyIn0.bIPzsPdKRcAF7Txb0gjGFw3J25gxgVGtfXk81I1VNeg"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5YWRhYzcyMzlmZGNkOTNmZjhiMDBlYiIsImlzc3VlciI6Im5mc2VydmVyIn0.uje1rFMn4_qf8gYq9btwRjy4-MMo2Ii96WcKHFA_o48"></script></body>
+</html>

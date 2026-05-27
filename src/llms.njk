@@ -1,0 +1,27 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# Chris McCann — Field Notes
+
+> Consciousness research. Leadership. The gap between what leaders do and what they're carrying when they do it.
+
+Chris McCann writes about consciousness, leadership, and the field between them. Fifteen years leading sales teams. Co-authoring a book with Dr. Carlos Warter (Park Street Press, spring 2027).
+
+## Essays
+
+{% for essay in collections.essays %}
+- [{{ essay.data.title }}]({{ site.siteUrl }}{{ essay.data.permalink }}) — {{ essay.data.description }}
+{% endfor %}
+
+## Pages
+
+- [Home]({{ site.siteUrl }}/) — Consciousness research. Leadership. The gap between what leaders do and what they're carrying when they do it.
+- [About]({{ site.siteUrl }}/about/) — Twenty-five years leading teams. Fifteen in SaaS. Co-authoring a book on consciousness and leadership.
+- [Retreats]({{ site.siteUrl }}/retreats/) — Private leadership retreats with Chris McCann and Dr. Carlos Warter. By application.
+- [Field Assessment]({{ site.siteUrl }}/field-assessment/) — Twelve questions. Five minutes. What your quarterly review misses.
+
+## Contact
+
+- Email: chris@chrismccann.co
+- LinkedIn: https://www.linkedin.com/in/chrismccannco/

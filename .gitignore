@@ -1,0 +1,19 @@
+# Build output
+_site/
+
+# Dependencies
+node_modules/
+
+# Old deploy zips
+deploy-*.zip
+
+# Netlify
+.netlify/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local

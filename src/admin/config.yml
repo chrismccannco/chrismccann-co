@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: chrismccann/chrismccann-co
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "essays"
+    label: "Essays"
+    folder: "src/field-notes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Meta Description", name: "description", widget: "string", hint: "Under 160 characters. Appears in search results." }
+      - { label: "OG Description", name: "ogDescription", widget: "string", required: false, hint: "Optional. Shown in social previews. Defaults to meta description." }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "e.g. /field-notes/your-essay-slug/" }
+      - label: "Related Reading"
+        name: "relatedReading"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Chris McCann</title>
+  <meta name="description" content="Privacy policy for chrismccann.co.">
+  <link rel="canonical" href="https://chrismccann.co/privacy/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <nav class="fade-in">
+    <a href="/" class="site-name">
+      <svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Chris McCann"><rect width="32" height="32" rx="2" fill="currentColor"/><text x="16" y="23" font-family="'EB Garamond', Georgia, serif" font-size="20" font-weight="500" fill="#faf9f7" text-anchor="middle" letter-spacing="-0.5">CM</text></svg>
+    </a>
+    <div class="nav-links">
+      <a href="/field-notes/">Field Notes</a>
+      <a href="/about/">About</a>
+      <a href="/retreats/">Retreats</a>
+      <a href="/field-assessment/">Field Assessment</a>
+    </div>
+  </nav>
+
+  <header class="fade-in">
+    <h1 class="page-title">Privacy Policy</h1>
+  </header>
+
+  <div class="divider fade-in"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+
+  <main id="main-content" class="fade-in">
+    <section>
+      <p><strong>Last updated:</strong> February 2026</p>
+
+      <p>This site is run by Chris McCann. Here is what happens with your information when you visit chrismccann.co.</p>
+
+      <p><strong>What I collect</strong></p>
+
+      <p>If you subscribe to Field Notes or take the Field Assessment, I collect your email address. That email goes to Beehiiv, which handles the newsletter. I use it to send you what I said I would send you. Nothing else.</p>
+
+      <p>If you take the Field Assessment, your results (score band, dimension scores) are attached to your subscription so I can send a relevant follow-up. No answers to individual questions are stored.</p>
+
+      <p><strong>Analytics</strong></p>
+
+      <p>This site uses Plausible Analytics, which is privacy-focused and does not use cookies. No personal data is collected. No tracking across sites. Plausible collects aggregate data only: page views, referral sources, country, device type. None of it is tied to an individual.</p>
+
+      <p><strong>Cookies</strong></p>
+
+      <p>This site does not set cookies.</p>
+
+      <p><strong>Third parties</strong></p>
+
+      <p>Beehiiv (newsletter delivery), Netlify (hosting), Plausible (analytics), Google Fonts (typography). Each has its own privacy policy. I chose them because they are straightforward about what they do with data.</p>
+
+      <p><strong>Your data</strong></p>
+
+      <p>If you want to unsubscribe, every email has a link at the bottom. If you want your email removed entirely, write me at <a class="inline-link" href="mailto:chris@chrismccann.co">chris@chrismccann.co</a> and I will take care of it.</p>
+
+      <p><strong>Contact</strong></p>
+
+      <p>Questions about any of this: <a class="inline-link" href="mailto:chris@chrismccann.co">chris@chrismccann.co</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <nav aria-label="Footer" class="footer-nav">
+        <a href="/field-notes/">Field Notes</a>
+        <a href="/about/">About</a>
+        <a href="/retreats/">Retreats</a>
+        <a href="/field-assessment/">Field Assessment</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+      <div class="footer-connect">
+        <a href="https://www.linkedin.com/in/chrismccannco/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/chrismccann.co/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://x.com/fieldnotescm" target="_blank" rel="noopener">X</a>
+        <a href="https://www.linkedin.com/newsletters/field-notes-7050474114494451713/" target="_blank" rel="noopener">Newsletter Archive</a>
+        <a href="mailto:chris@chrismccann.co">Send a Note</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Chris McCann</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5OWQ0MTdhNjE1NjlhZjQzYTEwZDc3MiIsImlzc3VlciI6Im5mc2VydmVyIn0.xcXk7m2IObeMcNgaELl2lg-IXNdNYEfb_pAP7294H08"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5OWUxYjhjNTQxZjkyMDc4YzI0Yzg1MCIsImlzc3VlciI6Im5mc2VydmVyIn0.Rw8AMxn5UvA2dU9QZnL0DqwSCFjaHNh8ZVqsauA_h6E"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5YWQ5N2NiNzA3MTcxMTY1Y2Y4OTZlOSIsImlzc3VlciI6Im5mc2VydmVyIn0.bIPzsPdKRcAF7Txb0gjGFw3J25gxgVGtfXk81I1VNeg"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="f02b4d2a-ed83-4616-bd34-8abaa59231d2" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiZjAyYjRkMmEtZWQ4My00NjE2LWJkMzQtOGFiYWE1OTIzMWQyIiwiYWNjb3VudF9pZCI6IjY5ODYyMmQwYjBiN2Q1MGQyZDNjMGQyNSIsImRlcGxveV9pZCI6IjY5YWRhYzcyMzlmZGNkOTNmZjhiMDBlYiIsImlzc3VlciI6Im5mc2VydmVyIn0.uje1rFMn4_qf8gYq9btwRjy4-MMo2Ii96WcKHFA_o48"></script></body>
+</html>

@@ -1,0 +1,7 @@
+[build]
+  command = "npm install && npx @11ty/eleventy"
+  publish = "_site"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

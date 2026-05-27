@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: "Retreats — Chris McCann"
+description: "Private leadership retreats with Chris McCann and Dr. Carlos Warter. Consciousness, embodied presence, and what most leadership culture ignores. By application."
+ogDescription: "Private retreats with Chris McCann and Dr. Carlos Warter. Small group. 3-5 days. Inner work for people who've stopped pretending the résumé is the whole story."
+canonicalUrl: "/retreats/"
+permalink: /retreats/index.html
+---
+
+{% block head %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Private Retreats with Chris McCann and Dr. Carlos Warter",
+    "url": "https://chrismccann.co/retreats",
+    "description": "Private retreats for leaders. Small group. 3-5 days. Inner work for people who've stopped pretending the résumé is the whole story.",
+    "provider": {
+      "@type": "Person",
+      "name": "Chris McCann",
+      "url": "https://chrismccann.co"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block header %}
+  <header class="fade-in">
+    <h1 class="page-title">Private Retreats</h1>
+    <div class="subhead">With Chris McCann and Dr. Carlos Warter.</div>
+  </header>
+
+  <div class="divider fade-in"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+{% endblock %}
+
+{% block content %}
+  <main id="main-content" class="fade-in">
+    <section>
+      <p>This is inner work for people who've stopped pretending the résumé is the whole story.</p>
+
+      <p><a class="inline-link" href="https://drwarter.com" target="_blank" rel="noopener">Carlos</a> is a physician, psychiatrist, and author who's spent fifty years studying consciousness and what it means to actually pay attention. I spent fifteen years leading corporate sales teams before I noticed the thing I was optimizing around was never on the dashboard. Together we work with what's happening inside the person, not the persona.</p>
+
+      <p>What you're carrying that nobody asked you to carry. Why the version of you everyone sees is different from the one that shows up when nobody's watching. Where you actually are versus where you thought you'd be by now.</p>
+
+      <p>Some of it will be uncomfortable in ways that surprise you. Most of what matters happens in the space between the sessions, in conversations that weren't scheduled and silences that weren't awkward.</p>
+
+      <div class="retreat-detail">
+        <h3>Who shows up</h3>
+        <p>People who've done the right things. Built the career, the family, the life that checks every box they drew for themselves at thirty. Figured it would feel different when they got there. It doesn't.</p>
+        <p>People who already know the difference between consuming an experience and being changed by one.</p>
+      </div>
+
+      <div class="retreat-detail">
+        <h3>What changes</h3>
+        <p>A shift at home, at work, in the ordinary moments that used to run on autopilot. Most people who come through can't explain it. They just know the weight they were carrying wasn't theirs to begin with.</p>
+      </div>
+
+      <div class="retreat-detail">
+        <h3>Format</h3>
+        <p>Up to twelve people. Three to five days. No agenda distributed in advance. Locations have included Latin America, the US, and Europe.</p>
+      </div>
+
+      <p style="margin-top: 2rem;">If any of this landed, <a class="inline-link" href="mailto:chris@chrismccann.co">write me</a>.</p>
+    </section>
+  </main>
+{% endblock %}
+
+{% block subscribe %}
+  <div id="signup" class="signup-section fade-in">
+    <h2>Field Notes</h2>
+    <p>Working it out before I have the answers.</p>
+    <form id="pageSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
+      <input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
+        style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
+      <button type="submit" id="pageSubBtn"
+        style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">Subscribe</button>
+    </form>
+    <div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
+    <div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
+    <script>
+    document.getElementById('pageSubscribe').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('pageEmail').value.trim();
+      const btn = document.getElementById('pageSubBtn');
+      if (!email) return;
+      btn.textContent = '...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('/.netlify/functions/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        });
+        if (res.ok) {
+          document.getElementById('pageSubscribe').style.display = 'none';
+          document.getElementById('pageSubSuccess').style.display = 'block';
+        } else {
+          document.getElementById('pageSubError').style.display = 'block';
+          btn.textContent = 'Subscribe';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        document.getElementById('pageSubError').style.display = 'block';
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+      }
+    });
+    </script>
+  </div>
+{% endblock %}
