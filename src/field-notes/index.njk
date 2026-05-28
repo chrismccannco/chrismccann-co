@@ -42,6 +42,47 @@ permalink: /field-notes/index.html
       <p style="margin: 0;"><a class="inline-link" href="/field-notes/the-room-knew-first/">The Room Knew First</a></p>
     </div>
 
+    <div class="fade-in" style="margin: 0 0 2.5rem; padding: 1.25rem 0; border-top: 1px solid var(--light-gray); border-bottom: 1px solid var(--light-gray);">
+      <p style="font-family: var(--sans); font-size: 0.8rem; color: var(--gray); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem;">Field Notes — Every other Thursday</p>
+      <form id="topSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
+        <input type="email" id="topEmail" required placeholder="Your email" aria-label="Email address"
+          style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
+        <button type="submit" id="topSubBtn"
+          style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">Subscribe</button>
+      </form>
+      <div id="topSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
+      <div id="topSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
+      <script>
+      document.getElementById('topSubscribe').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('topEmail').value.trim();
+        const btn = document.getElementById('topSubBtn');
+        if (!email) return;
+        btn.textContent = '...';
+        btn.disabled = true;
+        try {
+          const res = await fetch('/.netlify/functions/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email })
+          });
+          if (res.ok) {
+            document.getElementById('topSubscribe').style.display = 'none';
+            document.getElementById('topSubSuccess').style.display = 'block';
+          } else {
+            document.getElementById('topSubError').style.display = 'block';
+            btn.textContent = 'Subscribe';
+            btn.disabled = false;
+          }
+        } catch (err) {
+          document.getElementById('topSubError').style.display = 'block';
+          btn.textContent = 'Subscribe';
+          btn.disabled = false;
+        }
+      });
+      </script>
+    </div>
+
     <section class="article-list">
       <div class="article-item" style="margin-bottom: 2.5rem;">
         <h3 class="theme-label">I think I might be the variable</h3>
