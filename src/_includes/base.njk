@@ -25,7 +25,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <script defer src="{{ site.plausibleScript }}"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="{{ site.plausibleScript }}"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
   {% block head %}{% endblock %}
 </head>
 <body{% if pageClass %} class="{{ pageClass }}"{% endif %}>
