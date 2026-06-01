@@ -24,23 +24,21 @@ He wasn't wrong.
 
 I started trying to sit still.
 
-Two minutes was the goal. Twenty seconds was the reality. I'd get pissed that MindfulMike420 kept getting more meditation points on the app than me. It took some time (and transcendental meditation) to be able to sit longer. I'm still inconsistent with it. Most days it's less mantra and more a minute of gratitude and a deep breath before the day takes over. Seems to be enough, at least most of the time.
+Two minutes was the goal. Twenty seconds was the reality. I'd get pissed that MindfulMike420 kept getting more meditation points on the app than me. It took some time (and transcendental meditation) to be able to sit longer. I'm still inconsistent with it. Most days it's less mantra and more a minute of gratitude and a deep breath before the day takes over. Seems to be enough.
 
 What changed was the vibe.
 
-I want to be careful here. This is the part where it would be easy to sound like I cracked a code. I didn't. I started paying attention to a variable I'd spent a lifetime treating as a constant.
-
-It gets stranger.
+I didn't crack a code. I started tracking a variable I'd spent a lifetime ignoring.
 
 Some leaders walk in and the room opens up. The same people, in the same chairs, will say things they wouldn't say for anyone else. Other leaders walk in and the same room contracts. Not because of what gets said. Something transmits before the words start.
 
-For a long time I thought that was charisma. Something you either had or didn't. HeartMath Institute measures it differently. The heart generates the largest electromagnetic field in the body. You can detect it several feet away. Your state changes that field. Other people's nervous systems pick up the difference before a word gets spoken. (The Energetic Heart Is Unfolding, 2010)
-
 I don't think it's charisma anymore. I think it's state.
 
-The quality of your attention. Whether you're open to being wrong or just collecting evidence for what you already think to be true. Whether people in the room can feel you listening or just waiting. These things are not subtle. They're the loudest signal in the building. Most of us never learn to hear our own.
+The quality of your attention. Whether you're open to being wrong or just collecting evidence for what you already think. Whether people in the room can feel you listening or just waiting. These things are not subtle. They're the loudest signal in the building. Most of us never learn to hear our own.
 
-The question I kept coming back to: if your state shapes the field before anyone speaks, then every 1:1 is missing a line item. Pipeline, yes. Activity, fine. But what state did you walk in with today? HeartMath can actually measure it. The electromagnetic output of the heart is detectable, consistent, trackable data. We just decided it doesn't belong on a dashboard. That might be the call we got wrong.
+HeartMath Institute measures it differently. The heart generates the largest electromagnetic field in the body, detectable several feet away. Your state changes that field. Other people's nervous systems pick up the difference before a word gets spoken. (The Energetic Heart Is Unfolding, 2010)
+
+The question I kept coming back to: if your state shapes the field before anyone speaks, then every 1:1 is missing a line item. Pipeline, yes. Activity, fine. But what state did you walk in with today? The data already exists. The electromagnetic signature of your state is detectable, measurable, trackable. We just decided it doesn't belong on a dashboard. That might be the call we got wrong.
 
 I'm still working through it. That's what Field Notes is.
 
