@@ -4,7 +4,7 @@ description: "A rep closed the biggest deal in company history. The room felt em
 ogDescription: "It started on a Tuesday in Q3. A rep closed the biggest deal in company history. The room felt empty."
 date: 2026-05-21
 permalink: /field-notes/the-room-knew-first/
-assessmentCallout: "The Field Assessment asks twelve questions the quarterly review won't."
+assessmentCallout: "The Field Assessment asks eighteen questions the quarterly review won't."
 relatedReading:
   - title: "You're New. We're Burnt Out."
     url: /field-notes/youre-new-were-burnt-out/
