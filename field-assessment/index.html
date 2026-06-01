@@ -487,7 +487,7 @@
     <div class="screen active" id="screen-intro">
       <h1 class="intro-title">The Field Assessment</h1>
       <div class="intro-subtitle">Your state. Your team's field.</div>
-      <div class="intro-meta">24 questions · 5 minutes · 2 parts</div>
+      <div class="intro-meta">18 questions · ~7 minutes · 2 parts</div>
       <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">Part one: what you bring into the room before anyone says a word. Part two: what happens around you when you're not trying to make something happen.</p>
       <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">Go with the answer that feels right in your gut. Not the one that sounds like growth.</p>
       <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 2.5rem;">No scores to game. No profiles to perform.</p>
@@ -514,7 +514,7 @@
     <div class="screen" id="screen-section-b">
       <div class="section-transition-title">Part B: Your Field</div>
       <div class="section-transition-desc">What happens around you when you're not trying to make something happen.</div>
-      <button class="btn" onclick="showQuestion(6)">Continue</button>
+      <button class="btn" onclick="showQuestion(9)">Continue</button>
     </div>
 
     <!-- RESULTS -->
@@ -526,7 +526,7 @@
 
       <div class="result-dimension">
         <div class="result-dimension-title" id="labelBarA">Part A: Your State</div>
-        <div class="result-dimension-bar-track" role="meter" aria-labelledby="labelBarA" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30" id="meterA">
+        <div class="result-dimension-bar-track" role="meter" aria-labelledby="labelBarA" aria-valuenow="0" aria-valuemin="0" aria-valuemax="45" id="meterA">
           <div class="result-dimension-bar-fill" id="barA" style="width: 0%"></div>
         </div>
         <div class="result-dimension-score" id="scoreA" aria-live="polite"></div>
@@ -534,7 +534,7 @@
 
       <div class="result-dimension">
         <div class="result-dimension-title" id="labelBarB">Part B: Your Field</div>
-        <div class="result-dimension-bar-track" role="meter" aria-labelledby="labelBarB" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30" id="meterB">
+        <div class="result-dimension-bar-track" role="meter" aria-labelledby="labelBarB" aria-valuenow="0" aria-valuemin="0" aria-valuemax="45" id="meterB">
           <div class="result-dimension-bar-fill" id="barB" style="width: 0%"></div>
         </div>
         <div class="result-dimension-score" id="scoreB" aria-live="polite"></div>
@@ -652,7 +652,80 @@ const questions = [
       "I can hold it and still function. That took years."
     ]
   },
+  // Q7A — somatic awareness
+  {
+    section: "A",
+    text: "You're about to walk into something that matters. What's happening in your body?",
+    options: [
+      "Something tightens — jaw, shoulders, chest. I've started paying attention to which.",
+      "I feel clear. Whatever adrenaline shows up is useful.",
+      "I'm already in the meeting before I get there. My body's along for the ride.",
+      "I don't really track what's happening physically.",
+      "I notice something, but I'm not sure what to do with it yet."
+    ]
+  },
+  // Q8A — real-time attention
+  {
+    section: "A",
+    text: "You're in a meeting and your attention slips. Does it register while it's happening?",
+    options: [
+      "Yes. I can usually feel the moment I go elsewhere.",
+      "Sometimes. I catch myself mid-drift more than I used to.",
+      "Mostly after. I notice I was gone, not when I left.",
+      "Not really. I'm in it or I'm not — I don't track the in-between.",
+      "I try to catch it. Hard to say how well I actually do."
+    ]
+  },
+  // Q9A — recovery
+  {
+    section: "A",
+    text: "You're off before a meeting you can't cancel. What happens?",
+    options: [
+      "I have something. A breath, a pause, a reset — it usually works.",
+      "I push through. Showing up is the job.",
+      "I don't usually know until I'm already in it.",
+      "I'll hand it off or reschedule if I can. Half-present is worse than absent.",
+      "I name it to myself and try to stay honest about it in the room."
+    ]
+  },
   // Part B: Your Field
+  // Q1B-new — contrast experience
+  {
+    section: "B",
+    text: "Two rooms. Identical metrics. Completely different feel. Has that happened for you?",
+    options: [
+      "Yes. More than once. I've started trusting what I felt over what I measured.",
+      "Yes. I never quite had language for it.",
+      "Something like it. I chalked it up to team morale or circumstance.",
+      "Not really. I tend to trust the data.",
+      "Maybe once. I wasn't sure what I was sensing."
+    ]
+  },
+  // Q2B-new — influence recognition
+  {
+    section: "B",
+    text: "Have you ever shifted your own state during a meeting and felt the room change?",
+    options: [
+      "Yes. I've done it deliberately.",
+      "Yes, though I couldn't have named it as the cause at the time.",
+      "I think so, but I'm not sure it was me.",
+      "Not that I've noticed. The room seems to have its own momentum.",
+      "No. I don't think my state moves the room that way."
+    ]
+  },
+  // Q3B-new — sensing accuracy
+  {
+    section: "B",
+    text: "When something feels off in your team before anyone names it — how often are you right?",
+    options: [
+      "Almost always. I've learned to act on it early.",
+      "More often than not. The signal is usually real.",
+      "Sometimes. It's hard to tell sense from projection.",
+      "I'm not sure. I don't usually track it.",
+      "Rarely. I try not to act on things I can't point to."
+    ]
+  },
+  // Part B: Your Field (original questions)
   // Q7 — highest at E (ascending)
   {
     section: "B",
@@ -727,11 +800,11 @@ const questions = [
   }
 ];
 
-const answers = new Array(12).fill(null);
-const rawSelections = new Array(12).fill(null); // tracks which option (1-5) was picked for UI
+const answers = new Array(18).fill(null);
+const rawSelections = new Array(18).fill(null); // tracks which option (1-5) was picked for UI
 let currentQuestion = -1;
 const keys = ['A', 'B', 'C', 'D', 'E'];
-const totalScreens = 15; // intro + sectionA + 6q + sectionB + 6q + results
+const totalScreens = 21; // intro + sectionA + 6q + sectionB + 6q + results
 
 // Scoring: each question gets a custom point map [A, B, C, D, E]
 // Not all questions scale linearly A=1..E=5. This prevents gaming.
@@ -744,7 +817,13 @@ const scoring = [
   [1, 4, 5, 2, 3],  // Q4: A=HR(1), B=tell-early(4), C=feel-shift(5), D=numbers(2), E=behavior(3)
   [5, 1, 3, 2, 4],  // Q5: A=trust(5), B=fill(1), C=getting-better(3), D=count-seconds(2), E=manage(4)
   [1, 2, 5, 3, 4],  // Q6: A=loops(1), B=resurfaces(2), C=quiet-ground(5), D=reset(3), E=hold(4)
-  [1, 2, 3, 4, 5],  // Q7: A=low→E=high. Team attention quality.
+  [5, 4, 2, 1, 3],  // Q7A: somatic — A=tightens-tracks(5), B=clear(4), C=mind-ahead(2), D=unaware(1), E=unsure(3)
+  [5, 4, 2, 1, 3],  // Q8A: attention — A=real-time(5), B=mid-drift(4), C=after-fact(2), D=in-or-out(1), E=tries(3)
+  [5, 2, 1, 4, 3],  // Q9A: recovery — A=has-reset(5), B=push-through(2), C=dont-notice(1), D=reschedule(4), E=names-it(3)
+  [5, 4, 2, 1, 3],  // Q1B-new: contrast — A=trusts(5), B=felt-no-lang(4), C=chalked-up(2), D=data-only(1), E=maybe(3)
+  [5, 4, 3, 2, 1],  // Q2B-new: influence — A=deliberate(5), B=retroactive(4), C=uncertain(3), D=room-drives(2), E=no(1)
+  [5, 4, 3, 2, 1],  // Q3B-new: sensing — A=almost-always(5), B=more-often(4), C=sometimes(3), D=dont-track(2), E=rarely(1)
+  [1, 2, 3, 4, 5],  // Q7-orig: A=low→E=high. Team attention quality.
   [1, 5, 3, 4, 2],  // Q8: A=last-to-know(1), B=instant(5), C=reliably(3), D=fast(4), E=edited(2)
   [5, 1, 3, 4, 2],  // Q9: A=team-way(5), B=sits(1), C=eventually(3), D=names-fast(4), E=sideways(2)
   [1, 4, 5, 2, 3],  // Q10: A=3-versions(1), B=know(4), C=brain(5), D=slide(2), E=mostly(3)
@@ -792,7 +871,7 @@ function showQuestion(index) {
 
   document.getElementById('qSectionLabel').textContent =
     q.section === 'A' ? 'Part A: Your State' : 'Part B: Your Field';
-  document.getElementById('qCounter').textContent = qNum + ' of 12';
+  document.getElementById('qCounter').textContent = qNum + ' of 18';
   document.getElementById('qText').textContent = q.text;
 
   const optionsEl = document.getElementById('qOptions');
@@ -814,7 +893,7 @@ function showQuestion(index) {
 
   // Progress: intro(0) + sectionA(1) + questions offset
   let step;
-  if (index < 6) {
+  if (index < 9) {
     step = 2 + index;
   } else {
     step = 3 + index; // +1 for sectionB screen
@@ -844,11 +923,11 @@ function selectAnswer(qIndex, value) {
 
   setTimeout(() => {
     const next = qIndex + 1;
-    if (next === 6) {
+    if (next === 9) {
       // Show section B transition
       showScreen('screen-section-b');
-      updateProgress(8);
-    } else if (next === 12) {
+      updateProgress(11);
+    } else if (next === 18) {
       // Show results
       showResults();
     } else {
@@ -897,18 +976,18 @@ const subscribeCopyMap = {
 };
 
 function showResults() {
-  const scoreA = answers.slice(0, 6).reduce((a, b) => a + b, 0);
-  const scoreB = answers.slice(6, 12).reduce((a, b) => a + b, 0);
+  const scoreA = answers.slice(0, 9).reduce((a, b) => a + b, 0);
+  const scoreB = answers.slice(9, 18).reduce((a, b) => a + b, 0);
   const total = scoreA + scoreB;
 
   // Determine band
   let bandName, bandDesc, bandItalic, bandKey;
-  if (total <= 27) {
+  if (total <= 40) {
     bandKey = 'autopilot';
     bandName = 'Operating on Autopilot';
     bandDesc = 'The calendar is full. The metrics are moving. The team is functional. And something is off, but you can\u2019t name it. I lived here for years. Performing presence while my mind ran its loops. The body knew. I just wasn\u2019t listening.';
     bandItalic = 'Most leaders stay here longer than they think. The fact that you took this is already different.';
-  } else if (total <= 44) {
+  } else if (total <= 66) {
     bandKey = 'paying_attention';
     bandName = 'Paying Attention';
     bandDesc = 'You\u2019ve started catching things most leaders miss. The pause before the reaction. The shift in the room when someone checks out. The gap between what the dashboard says and what the team actually feels. This is the hardest band to stay in, because the awareness is there but the habits haven\u2019t fully caught up.';
@@ -974,12 +1053,12 @@ function showResults() {
 
   // Animate bars after a tick
   requestAnimationFrame(() => {
-    document.getElementById('barA').style.width = ((scoreA / 30) * 100) + '%';
-    document.getElementById('barB').style.width = ((scoreB / 30) * 100) + '%';
+    document.getElementById('barA').style.width = ((scoreA / 45) * 100) + '%';
+    document.getElementById('barB').style.width = ((scoreB / 45) * 100) + '%';
     document.getElementById('meterA').setAttribute('aria-valuenow', scoreA);
     document.getElementById('meterB').setAttribute('aria-valuenow', scoreB);
-    document.getElementById('scoreA').textContent = scoreA + ' of 30';
-    document.getElementById('scoreB').textContent = scoreB + ' of 30';
+    document.getElementById('scoreA').textContent = scoreA + ' of 45';
+    document.getElementById('scoreB').textContent = scoreB + ' of 45';
   });
 
   trackEvent('Assessment Completed', {
@@ -1005,10 +1084,10 @@ document.getElementById('assessmentSubscribe').addEventListener('submit', async 
   successEl.style.display = 'none';
   errorEl.style.display = 'none';
 
-  const scoreA = answers.slice(0, 6).reduce((a, b) => a + b, 0);
-  const scoreB = answers.slice(6, 12).reduce((a, b) => a + b, 0);
+  const scoreA = answers.slice(0, 9).reduce((a, b) => a + b, 0);
+  const scoreB = answers.slice(9, 18).reduce((a, b) => a + b, 0);
   const total = scoreA + scoreB;
-  const band = total <= 27 ? 'autopilot' : total <= 44 ? 'paying_attention' : 'holding_the_field';
+  const band = total <= 40 ? 'autopilot' : total <= 66 ? 'paying_attention' : 'holding_the_field';
 
   try {
     const res = await fetch('/.netlify/functions/subscribe', {
