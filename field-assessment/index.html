@@ -655,13 +655,13 @@ const questions = [
   // Q7A — somatic awareness
   {
     section: "A",
-    text: "You're about to walk into something that matters. What's happening in your body?",
+    text: "Before a meeting that matters, you catch something in your body — tension, heat, already somewhere else. What do you do with it?",
     options: [
-      "Something tightens — jaw, shoulders, chest. I've started paying attention to which.",
-      "I feel clear. Whatever adrenaline shows up is useful.",
-      "I'm already in the meeting before I get there. My body's along for the ride.",
-      "I don't really track what's happening physically.",
-      "I notice something, but I'm not sure what to do with it yet."
+      "I don't usually catch it until I'm already in the room.",
+      "I notice it but I don't have anything to do with it yet.",
+      "I have something. It doesn't always work, but I reach for it.",
+      "I push through. The meeting starts whether I'm ready or not.",
+      "I've rescheduled for exactly this reason. Half-present isn't worth it."
     ]
   },
   // Q8A — real-time attention
@@ -669,23 +669,23 @@ const questions = [
     section: "A",
     text: "You're in a meeting and your attention slips. Does it register while it's happening?",
     options: [
-      "Yes. I can usually feel the moment I go elsewhere.",
-      "Sometimes. I catch myself mid-drift more than I used to.",
       "Mostly after. I notice I was gone, not when I left.",
       "Not really. I'm in it or I'm not — I don't track the in-between.",
-      "I try to catch it. Hard to say how well I actually do."
+      "Sometimes. I catch myself mid-drift more than I used to.",
+      "I try to catch it. Hard to say how well I actually do.",
+      "Yes. I can usually feel the moment I go elsewhere."
     ]
   },
   // Q9A — recovery
   {
     section: "A",
-    text: "You're off before a meeting you can't cancel. What happens?",
+    text: "Do you have a practice? Something deliberate before high-stakes moments — not a routine, just something that's yours.",
     options: [
-      "I have something. A breath, a pause, a reset — it usually works.",
-      "I push through. Showing up is the job.",
-      "I don't usually know until I'm already in it.",
-      "I'll hand it off or reschedule if I can. Half-present is worse than absent.",
-      "I name it to myself and try to stay honest about it in the room."
+      "I've tried things. Nothing's stuck.",
+      "Yes. Small. Usually works.",
+      "I used to. I've let it slip.",
+      "I don't think about it consciously. It just happens or it doesn't.",
+      "I walk in and figure it out as I go."
     ]
   },
   // Part B: Your Field
@@ -694,11 +694,11 @@ const questions = [
     section: "B",
     text: "Two rooms. Identical metrics. Completely different feel. Has that happened for you?",
     options: [
-      "Yes. More than once. I've started trusting what I felt over what I measured.",
-      "Yes. I never quite had language for it.",
-      "Something like it. I chalked it up to team morale or circumstance.",
+      "Maybe once. I wasn't sure what I was sensing.",
       "Not really. I tend to trust the data.",
-      "Maybe once. I wasn't sure what I was sensing."
+      "Something like it. I chalked it up to team morale or circumstance.",
+      "Yes. More than once. I've started trusting what I felt over what I measured.",
+      "Yes. I never quite had language for it."
     ]
   },
   // Q2B-new — influence recognition
@@ -706,11 +706,11 @@ const questions = [
     section: "B",
     text: "Have you ever shifted your own state during a meeting and felt the room change?",
     options: [
+      "No. I don't think my state moves the room that way.",
       "Yes. I've done it deliberately.",
-      "Yes, though I couldn't have named it as the cause at the time.",
       "I think so, but I'm not sure it was me.",
       "Not that I've noticed. The room seems to have its own momentum.",
-      "No. I don't think my state moves the room that way."
+      "Yes, though I couldn't have named it as the cause at the time."
     ]
   },
   // Q3B-new — sensing accuracy
@@ -718,11 +718,11 @@ const questions = [
     section: "B",
     text: "When something feels off in your team before anyone names it — how often are you right?",
     options: [
-      "Almost always. I've learned to act on it early.",
-      "More often than not. The signal is usually real.",
-      "Sometimes. It's hard to tell sense from projection.",
       "I'm not sure. I don't usually track it.",
-      "Rarely. I try not to act on things I can't point to."
+      "Rarely. I try not to act on things I can't point to.",
+      "Sometimes. It's hard to tell sense from projection.",
+      "Almost always. I've learned to act on it early.",
+      "More often than not. The signal is usually real."
     ]
   },
   // Part B: Your Field (original questions)
@@ -817,12 +817,12 @@ const scoring = [
   [1, 4, 5, 2, 3],  // Q4: A=HR(1), B=tell-early(4), C=feel-shift(5), D=numbers(2), E=behavior(3)
   [5, 1, 3, 2, 4],  // Q5: A=trust(5), B=fill(1), C=getting-better(3), D=count-seconds(2), E=manage(4)
   [1, 2, 5, 3, 4],  // Q6: A=loops(1), B=resurfaces(2), C=quiet-ground(5), D=reset(3), E=hold(4)
-  [5, 4, 2, 1, 3],  // Q7A: somatic — A=tightens-tracks(5), B=clear(4), C=mind-ahead(2), D=unaware(1), E=unsure(3)
-  [5, 4, 2, 1, 3],  // Q8A: attention — A=real-time(5), B=mid-drift(4), C=after-fact(2), D=in-or-out(1), E=tries(3)
-  [5, 2, 1, 4, 3],  // Q9A: recovery — A=has-reset(5), B=push-through(2), C=dont-notice(1), D=reschedule(4), E=names-it(3)
-  [5, 4, 2, 1, 3],  // Q1B-new: contrast — A=trusts(5), B=felt-no-lang(4), C=chalked-up(2), D=data-only(1), E=maybe(3)
-  [5, 4, 3, 2, 1],  // Q2B-new: influence — A=deliberate(5), B=retroactive(4), C=uncertain(3), D=room-drives(2), E=no(1)
-  [5, 4, 3, 2, 1],  // Q3B-new: sensing — A=almost-always(5), B=more-often(4), C=sometimes(3), D=dont-track(2), E=rarely(1)
+  [1, 3, 5, 2, 4],  // Q7A: somatic — C=has-practice(5), E=rescheduled(4), B=no-action(3), D=pushes-thru(2), A=unaware(1)
+  [2, 1, 3, 4, 5],  // Q8A: attention — E=real-time(5), D=tries(4), C=mid-drift(3), A=after-fact(2), B=in-or-out(1)
+  [2, 5, 3, 4, 1],  // Q9A: practice — B=yes-small(5), D=unconscious(4), C=lapsed(3), A=tried(2), E=walk-in(1)
+  [2, 1, 3, 5, 4],  // Q10: contrast — D=trusts-felt(5), E=no-lang(4), C=chalked-up(3), A=maybe(2), B=data-only(1)
+  [1, 5, 3, 2, 4],  // Q11: influence — B=deliberate(5), E=retroactive(4), C=uncertain(3), D=room-drives(2), A=no(1)
+  [2, 1, 3, 5, 4],  // Q12: sensing — D=almost-always(5), E=more-often(4), C=sometimes(3), A=dont-track(2), B=rarely(1)
   [1, 2, 3, 4, 5],  // Q7-orig: A=low→E=high. Team attention quality.
   [1, 5, 3, 4, 2],  // Q8: A=last-to-know(1), B=instant(5), C=reliably(3), D=fast(4), E=edited(2)
   [5, 1, 3, 4, 2],  // Q9: A=team-way(5), B=sits(1), C=eventually(3), D=names-fast(4), E=sideways(2)
