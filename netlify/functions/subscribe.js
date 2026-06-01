@@ -1,11 +1,15 @@
 // Netlify Function: subscribe.js
-// Receives assessment results, subscribes user to Beehiiv with band-specific UTM tags
-// so Beehiiv automations can send the right personalized email.
+// Receives assessment results, subscribes user to Beehiiv and enrolls in band-specific automation.
 
 const PUBLICATION_ID = 'pub_e500b531-8dc6-42b7-85f7-fa7476b5c964';
 
+const BAND_AUTOMATION_MAP = {
+  autopilot:         'aut_2b65f90d-c0d8-4e6e-8878-eeea0c0216ca',
+  paying_attention:  'aut_8a517822-666c-4953-82a1-d0804b928684',
+  holding_the_field: 'aut_378ef9a8-3163-4dd2-b375-4d6f33466e2b'
+};
+
 exports.handler = async (event) => {
-  // Handle CORS preflight
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -45,7 +49,8 @@ exports.handler = async (event) => {
   const isAssessment = result_band && validBands.includes(result_band);
 
   try {
-    const res = await fetch(
+    // Step 1: Subscribe to publication
+    const subRes = await fetch(
       `https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/subscriptions`,
       {
         method: 'POST',
@@ -59,19 +64,43 @@ exports.handler = async (event) => {
           utm_medium: isAssessment ? result_band : 'organic',
           utm_campaign: isAssessment ? 'assessment-results' : 'homepage',
           reactivate_existing: true,
-          send_welcome_email: !isAssessment  // homepage subscribers get welcome; assessment gets personalized email
+          send_welcome_email: !isAssessment
         })
       }
     );
 
-    const data = await res.json();
+    const subData = await subRes.json();
 
-    if (!res.ok) {
-      console.error('Beehiiv API error:', res.status, JSON.stringify(data));
+    if (!subRes.ok) {
+      console.error('Beehiiv subscription error:', subRes.status, JSON.stringify(subData));
       return { statusCode: 500, body: 'Subscription failed' };
     }
 
-    console.log('Beehiiv subscribe success:', email, isAssessment ? result_band : 'homepage', isAssessment ? 'total: ' + score_total : '');
+    // Step 2: Enroll in band-specific automation
+    if (isAssessment && BAND_AUTOMATION_MAP[result_band]) {
+      const automationId = BAND_AUTOMATION_MAP[result_band];
+      const autoRes = await fetch(
+        `https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/automations/${automationId}/subscribers`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        }
+      );
+
+      if (!autoRes.ok) {
+        const autoErr = await autoRes.text();
+        console.error('Automation enrollment error:', autoRes.status, autoErr);
+        // Non-fatal: subscriber is added, automation enrollment failed
+      } else {
+        console.log('Enrolled in automation:', result_band, automationId);
+      }
+    }
+
+    console.log('Subscribe success:', email, isAssessment ? result_band : 'homepage');
 
     return {
       statusCode: 200,
