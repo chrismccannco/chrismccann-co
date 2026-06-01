@@ -4,7 +4,7 @@ description: "On executive retreats, manufactured breakthroughs, and the cheaper
 ogDescription: "Executives fly somewhere expensive to find themselves, have the breakthrough, post the cryptic Instagram story. Then they jump on the 405 and nothing changes."
 date: 2026-01-01
 permalink: /field-notes/you-dont-need-ayahuasca/
-assessmentCallout: "Paying attention starts somewhere. Five minutes, twelve questions."
+assessmentCallout: "Paying attention starts somewhere. Five minutes, eighteen questions."
 relatedReading:
   - title: "Your Body Knows Before You Do"
     url: /field-notes/your-body-knows-before-you-do/
