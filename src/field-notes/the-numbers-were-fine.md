@@ -1,17 +1,17 @@
 ---
-title: The Room Knew First
+title: "The Numbers Were Fine"
 description: "A rep closed the biggest deal in company history. The room felt empty. On presence, performance, and what rooms register before anyone speaks."
 ogDescription: "It started on a Tuesday in Q3. A rep closed the biggest deal in company history. The room felt empty."
 date: 2026-05-21
 permalink: /field-notes/the-numbers-were-fine/
-assessmentCallout: "The Field Assessment asks twelve questions the quarterly review won't."
+assessmentCallout: "The Field Assessment asks eighteen questions the quarterly review won't."
 relatedReading:
-  - title: "You're New. We're Burnt Out."
-    url: /field-notes/youre-new-were-burnt-out/
-  - title: "The Space I Didn't Ask For"
-    url: /field-notes/the-space-i-didnt-ask-for/
-  - title: "Your Body Knows Before You Do"
-    url: /field-notes/your-body-knows-before-you-do/
+- title: "You're New. We're Burnt Out."
+  url: /field-notes/youre-new-were-burnt-out/
+- title: "The Space I Didn't Ask For"
+  url: /field-notes/the-space-i-didnt-ask-for/
+- title: "Your Body Knows Before You Do"
+  url: /field-notes/your-body-knows-before-you-do/
 ---
 
 It started on a Tuesday in Q3. A rep closed the biggest deal in company history. The celebration was real but the room felt empty.
