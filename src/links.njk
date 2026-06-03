@@ -1,0 +1,173 @@
+---
+title: "Chris McCann"
+description: "Field Notes — consciousness, leadership, the gap between them. Essays for leaders in tech and sales who sense something is off but can't name it."
+permalink: /links/index.html
+noindex: true
+---
+{%- extends "base.njk" -%}
+
+{%- block head -%}
+<style>
+  .links-wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+  }
+  .links-profile {
+    text-align: center;
+    padding: 2.5rem 0 2rem;
+  }
+  .links-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+  .links-name {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+  }
+  .links-bio {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--gray);
+    line-height: 1.5;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .links-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    border: 1px solid var(--light-gray);
+    text-decoration: none;
+    color: var(--black);
+    transition: border-color 0.2s ease, background 0.2s ease;
+    background: transparent;
+  }
+  .links-card:hover {
+    border-color: var(--accent);
+    background: rgba(44,95,79,0.03);
+  }
+  .links-card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .links-card-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .links-card-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.3;
+  }
+  .links-card-arrow {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--gray);
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .links-card:hover .links-card-arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+  .links-divider {
+    border: none;
+    border-top: 1px solid var(--light-gray);
+    margin: 2rem 0;
+  }
+  .links-footer {
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--light-gray);
+    letter-spacing: 0.03em;
+  }
+  .links-footer a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .links-footer a:hover { color: var(--gray); }
+</style>
+{%- endblock -%}
+
+{%- block header -%}{%- endblock -%}
+
+{%- block content -%}
+{%- set latestEssay = collections.essays[0] -%}
+<main id="main-content">
+  <div class="links-wrap">
+
+    <div class="links-profile fade-in">
+      <div class="links-avatar">CM</div>
+      <div class="links-name">Chris McCann</div>
+      <p class="links-bio">Consciousness research. Leadership. The gap between them.</p>
+    </div>
+
+    <div class="links-list fade-in">
+
+      <a href="{{ latestEssay.data.permalink }}" class="links-card">
+        <div class="links-card-inner">
+          <span class="links-card-label">Latest Field Note</span>
+          <span class="links-card-title">{{ latestEssay.data.title }}</span>
+        </div>
+        <span class="links-card-arrow">&#8594;</span>
+      </a>
+
+      <a href="/field-assessment/" class="links-card">
+        <div class="links-card-inner">
+          <span class="links-card-label">Free &mdash; 5 minutes</span>
+          <span class="links-card-title">The Field Assessment</span>
+        </div>
+        <span class="links-card-arrow">&#8594;</span>
+      </a>
+
+      <a href="/field-notes/#signup" class="links-card">
+        <div class="links-card-inner">
+          <span class="links-card-label">Biweekly</span>
+          <span class="links-card-title">Subscribe to Field Notes</span>
+        </div>
+        <span class="links-card-arrow">&#8594;</span>
+      </a>
+
+    </div>
+
+    <hr class="links-divider">
+    <p class="links-footer"><a href="/">chrismccann.co</a></p>
+
+  </div>
+</main>
+{%- endblock -%}
+
+{%- block subscribe -%}{%- endblock -%}
