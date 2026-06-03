@@ -125,7 +125,12 @@ noindex: true
 {%- block header -%}{%- endblock -%}
 
 {%- block content -%}
-{%- set latestEssay = collections.essays[0] -%}
+{%- set latestEssay = null -%}
+{%- for post in collections.essays -%}
+  {%- if latestEssay == null and post.fileSlug != 'index' -%}
+    {%- set latestEssay = post -%}
+  {%- endif -%}
+{%- endfor -%}
 <main id="main-content">
   <div class="links-wrap">
 
