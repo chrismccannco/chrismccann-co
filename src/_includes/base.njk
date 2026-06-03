@@ -1,153 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
-  <!-- Open Graph / Social -->
-  <link rel="canonical" href="{{ site.siteUrl }}{{ canonicalUrl if canonicalUrl else page.url }}">
-  <meta property="og:type" content="{{ ogType if ogType else 'website' }}">
-  <meta property="og:url" content="{{ site.siteUrl }}{{ page.url }}">
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ ogDescription if ogDescription else description }}">
-  <meta property="og:image" content="{{ site.defaultOgImage }}">
-  <meta property="og:site_name" content="{{ site.siteName }}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title }}">
-  <meta name="twitter:description" content="{{ ogDescription if ogDescription else description }}">
-  <meta name="twitter:image" content="{{ site.defaultOgImage }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="{{ site.plausibleScript }}"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
-  {% block head %}{% endblock %}
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+<!-- Open Graph / Social -->
+<link rel="canonical" href="{{ site.siteUrl }}{{ canonicalUrl if canonicalUrl else page.url }}">
+<meta property="og:type" content="{{ ogType if ogType else 'website' }}">
+<meta property="og:url" content="{{ site.siteUrl }}{{ page.url }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ ogDescription if ogDescription else description }}">
+<meta property="og:image" content="{{ site.defaultOgImage }}">
+<meta property="og:site_name" content="{{ site.siteName }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ ogDescription if ogDescription else description }}">
+<meta name="twitter:image" content="{{ site.defaultOgImage }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="{{ site.plausibleScript }}"></script>
+<script>
+window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+plausible.init()
+</script>
+{% block head %}{% endblock %}
 </head>
 <body{% if pageClass %} class="{{ pageClass }}"{% endif %}>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-  </button>
+<button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
 
-  <nav class="fade-in">
-    <a href="/" class="site-name">
-      <svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Chris McCann"><rect width="32" height="32" rx="2" fill="currentColor"/><text x="16" y="23" font-family="'EB Garamond', Georgia, serif" font-size="20" font-weight="500" fill="#faf9f7" text-anchor="middle" letter-spacing="-0.5">CM</text></svg>
-    </a>
-    <div class="nav-links">
-      <a href="/field-notes/"{% if page.url == '/field-notes/' %} class="active"{% endif %}>Field Notes</a>
-      <a href="/about/"{% if page.url == '/about/' %} class="active"{% endif %}>About</a>
-      <a href="/retreats/"{% if page.url == '/retreats/' %} class="active"{% endif %}>Retreats</a>
-      <a href="/field-assessment/">Field Assessment</a>
-    </div>
-  </nav>
+<nav class="fade-in">
+<a href="/" class="site-name">
+<svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Chris McCann"><rect width="32" height="32" rx="2" fill="currentColor"/><text x="16" y="23" font-family="'EB Garamond', Georgia, serif" font-size="20" font-weight="500" fill="#faf9f7" text-anchor="middle" letter-spacing="-0.5">CM</text></svg>
+</a>
+<div class="nav-links">
+<a href="/field-notes/"{% if page.url == '/field-notes/' %} class="active"{% endif %}>Field Notes</a>
+<a href="/about/"{% if page.url == '/about/' %} class="active"{% endif %}>About</a>
+<a href="/retreats/"{% if page.url == '/retreats/' %} class="active"{% endif %}>Retreats</a>
+<a href="/field-assessment/">Field Assessment</a>
+</div>
+</nav>
 
-  {% block header %}{% endblock %}
+{% block header %}{% endblock %}
 
-  {% block content %}{% endblock %}
+{% block content %}{% endblock %}
 
-  {% block subscribe %}
-  <div id="signup" class="fade-in" style="margin: 2rem 0; padding: 2rem 2rem; text-align: center;">
-    <h2 style="font-family: var(--sans); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Field Notes</h2>
-    <p style="font-family: var(--serif); font-size: 16px; color: var(--gray); margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.6;">Working it out before I have the answers.</p>
-    <form id="pageSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
-      <input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
-        style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
-      <button type="submit" id="pageSubBtn"
-        style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">Subscribe</button>
-    </form>
-    <div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
-    <div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
-    <script>
-    document.getElementById('pageSubscribe').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const email = document.getElementById('pageEmail').value.trim();
-      const btn = document.getElementById('pageSubBtn');
-      if (!email) return;
-      btn.textContent = '...';
-      btn.disabled = true;
-      try {
-        const res = await fetch('/.netlify/functions/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email })
-        });
-        if (res.ok) {
-          document.getElementById('pageSubscribe').style.display = 'none';
-          document.getElementById('pageSubSuccess').style.display = 'block';
-        } else {
-          document.getElementById('pageSubError').style.display = 'block';
-          btn.textContent = 'Subscribe';
-          btn.disabled = false;
-        }
-      } catch (err) {
-        document.getElementById('pageSubError').style.display = 'block';
-        btn.textContent = 'Subscribe';
-        btn.disabled = false;
-      }
-    });
-    </script>
-  </div>
-  {% endblock %}
+{% block subscribe %}
+<div id="signup" class="fade-in" style="margin: 2rem 0; padding: 2rem 2rem; text-align: center;">
+<h2 style="font-family: var(--sans); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Field Notes</h2>
+<p style="font-family: var(--serif); font-size: 16px; color: var(--gray); margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.6;">Filed as they land.</p>
+<form id="pageSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
+<input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
+style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
+<button type="submit" id="pageSubBtn"
+style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">Subscribe</button>
+</form>
+<div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You&rsquo;re in. Check your inbox.</div>
+<div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
+<script>
+document.getElementById('pageSubscribe').addEventListener('submit', async function(e) {
+e.preventDefault();
+const email = document.getElementById('pageEmail').value.trim();
+const btn = document.getElementById('pageSubBtn');
+if (!email) return;
+btn.textContent = '...';
+btn.disabled = true;
+try {
+const res = await fetch('/.netlify/functions/subscribe', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ email: email })
+});
+if (res.ok) {
+document.getElementById('pageSubscribe').style.display = 'none';
+document.getElementById('pageSubSuccess').style.display = 'block';
+} else {
+document.getElementById('pageSubError').style.display = 'block';
+btn.textContent = 'Subscribe';
+btn.disabled = false;
+}
+} catch (err) {
+document.getElementById('pageSubError').style.display = 'block';
+btn.textContent = 'Subscribe';
+btn.disabled = false;
+}
+});
+</script>
+</div>
+{% endblock %}
 
-  <footer>
-    <div class="footer-content">
-      <nav aria-label="Footer" class="footer-nav">
-        <a href="/field-notes/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/retreats/">Retreats</a>
-        <a href="/field-assessment/">Field Assessment</a>
-        <a href="/privacy/">Privacy</a>
-      </nav>
-      <div class="footer-connect">
-        <a href="{{ site.linkedIn }}" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
-        <a href="{{ site.twitter }}" target="_blank" rel="noopener">X</a>
-        <a href="{{ site.newsletterArchive }}" target="_blank" rel="noopener">Newsletter Archive</a>
-        <a href="mailto:{{ site.email }}">Send a Note</a>
-      </div>
-      <p class="footer-copy">&copy; 2026 Chris McCann</p>
-    </div>
-  </footer>
+<footer>
+<div class="footer-content">
+<nav aria-label="Footer" class="footer-nav">
+<a href="/field-notes/">Field Notes</a>
+<a href="/about/">About</a>
+<a href="/retreats/">Retreats</a>
+<a href="/field-assessment/">Field Assessment</a>
+<a href="/privacy/">Privacy</a>
+</nav>
+<div class="footer-connect">
+<a href="{{ site.linkedIn }}" target="_blank" rel="noopener">LinkedIn</a>
+<a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+<a href="{{ site.twitter }}" target="_blank" rel="noopener">X</a>
+<a href="{{ site.newsletterArchive }}" target="_blank" rel="noopener">Newsletter Archive</a>
+<a href="mailto:{{ site.email }}">Send a Note</a>
+</div>
+<p class="footer-copy">&copy; 2026 Chris McCann</p>
+</div>
+</footer>
 
-  <script>
-    const toggle = document.querySelector('.mobile-nav-toggle');
-    const nav = document.querySelector('nav');
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  </script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+<script>
+const toggle = document.querySelector('.mobile-nav-toggle');
+const nav = document.querySelector('nav');
+toggle.addEventListener('click', () => {
+const open = nav.classList.toggle('is-open');
+toggle.setAttribute('aria-expanded', open);
+});
+nav.querySelectorAll('a').forEach(a => {
+a.addEventListener('click', () => {
+nav.classList.remove('is-open');
+toggle.setAttribute('aria-expanded', 'false');
+});
+});
+</script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+if (window.netlifyIdentity) {
+window.netlifyIdentity.on("init", user => {
+if (!user) {
+window.netlifyIdentity.on("login", () => {
+document.location.href = "/admin/";
+});
+}
+});
+}
+</script>
 
 </body>
 </html>
