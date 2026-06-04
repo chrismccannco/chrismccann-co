@@ -73,7 +73,7 @@ permalink: /retreats/index.html
       <input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
         style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
       <button type="submit" id="pageSubBtn"
-        style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">Subscribe</button>
+        style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">I'm in</button>
     </form>
     <div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
     <div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
@@ -96,12 +96,12 @@ permalink: /retreats/index.html
           document.getElementById('pageSubSuccess').style.display = 'block';
         } else {
           document.getElementById('pageSubError').style.display = 'block';
-          btn.textContent = 'Subscribe';
+          btn.textContent = 'I\'m in';
           btn.disabled = false;
         }
       } catch (err) {
         document.getElementById('pageSubError').style.display = 'block';
-        btn.textContent = 'Subscribe';
+        btn.textContent = 'I\'m in';
         btn.disabled = false;
       }
     });
