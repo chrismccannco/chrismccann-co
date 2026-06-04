@@ -199,48 +199,6 @@ permalink: /field-notes/index.html
     <a class="cta-btn" href="/field-assessment/" style="background: var(--white); color: var(--black); border-color: var(--white);">Take the Assessment</a>
   </div>
 
-  <div id="signup" class="fade-in" style="margin: 2rem 0; padding: 2rem 2rem 2.5rem; text-align: center; border-bottom: 1px solid #ddd;">
-    <h2 style="font-family: var(--sans); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">Field Notes</h2>
-    <p style="font-family: var(--serif); font-size: 16px; color: var(--gray); margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.6;">The room shifts when you walk in. You know this.</p>
-    <form id="pageSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
-      <input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
-        style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
-      <button type="submit" id="pageSubBtn"
-        style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">I'm in</button>
-    </form>
-    <div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
-    <div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
-    <script>
-    document.getElementById('pageSubscribe').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const email = document.getElementById('pageEmail').value.trim();
-      const btn = document.getElementById('pageSubBtn');
-      if (!email) return;
-      btn.textContent = '...';
-      btn.disabled = true;
-      try {
-        const res = await fetch('/.netlify/functions/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email })
-        });
-        if (res.ok) {
-          document.getElementById('pageSubscribe').style.display = 'none';
-          document.getElementById('pageSubSuccess').style.display = 'block';
-        } else {
-          document.getElementById('pageSubError').style.display = 'block';
-          btn.textContent = 'I\'m in';
-          btn.disabled = false;
-        }
-      } catch (err) {
-        document.getElementById('pageSubError').style.display = 'block';
-        btn.textContent = 'I\'m in';
-        btn.disabled = false;
-      }
-    });
-    </script>
-  </div>
-
   <section class="fade-in" style="max-width: var(--max-w); margin: 0 auto; padding: 0 2rem;">
     <div class="article-list">
       <h2 class="section-label">Earlier Work</h2>
