@@ -1,0 +1,47 @@
+---
+title: "Start Here — Chris McCann"
+description: "The gap between what leaders do and what they're carrying when they do it. A newsletter, a five-minute assessment, and a book with Dr. Carlos Warter."
+ogDescription: "What your quarterly review misses: what you're carrying into the room, and what the room is doing with it. Eighteen questions, two parts, five minutes."
+canonicalUrl: "/start/"
+permalink: /start/index.html
+---
+{%- extends "base.njk" -%}
+
+{% block head %}
+  <script>
+    if (window.plausible) { window.plausible('Start: view'); }
+  </script>
+{% endblock %}
+
+{% block header %}
+  <header class="fade-in">
+    <h1 class="page-title">What the quarterly review misses.</h1>
+    <div class="subhead">The gap between what leaders do and what they're carrying when they do it.</div>
+  </header>
+
+  <div class="divider fade-in"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+{% endblock %}
+
+{% block content %}
+  <main id="main-content" class="fade-in">
+    <section>
+      <p>A rep closed the biggest deal in company history. The celebration was real. The room felt empty.</p>
+
+      <p>Not tired. Not distracted. Empty. The numbers were right and everything underneath them was off.</p>
+
+      <p>That underneath is the whole subject. What a leader carries into the room that nobody asked them to carry. It sets the weather before anyone speaks, and it never shows up on the dashboard.</p>
+
+      <p>Fifteen years leading sales teams before I started paying attention to it. Now Field Notes, twice a month, and a book with <a class="inline-link" href="https://drwarter.com" target="_blank" rel="noopener">Dr. Carlos Warter</a> on the same question (Park Street Press, 2027).</p>
+    </section>
+
+    <div class="fade-in" style="margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--light-gray); border-bottom: 1px solid var(--light-gray); text-align: center;">
+      <h2 style="font-family: var(--sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.75rem;">The Field Assessment</h2>
+      <p style="font-family: var(--serif); font-size: 1.05rem; color: var(--black); line-height: 1.7; max-width: 480px; margin: 0 auto 1.5rem;">Eighteen questions. Five minutes. Two parts. What you're carrying into the room. What the room is doing with it.</p>
+      <a class="cta-btn-outline" href="/field-assessment/" onclick="if(window.plausible){plausible('Start: Assessment click')}">Take the Assessment</a>
+    </div>
+
+    <section style="text-align: center;">
+      <p style="font-family: var(--sans); font-size: 0.85rem; color: var(--gray); letter-spacing: 0.02em;">Or read a few Field Notes first: <a class="inline-link" href="/field-notes/">the writing &rarr;</a></p>
+    </section>
+  </main>
+{% endblock %}

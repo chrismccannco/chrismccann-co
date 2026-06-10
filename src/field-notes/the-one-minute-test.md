@@ -4,7 +4,7 @@ description: "Most leaders can't deliver feedback that lands under real pressure
 ogDescription: "If you had sixty seconds to give someone feedback that could change the trajectory of their career, could you do it? Without crushing them? Most leaders can't."
 date: 2025-08-01
 permalink: /field-notes/the-one-minute-test/
-assessmentCallout: "Sixty seconds was the test. Here's the longer version. Five minutes, twelve questions."
+assessmentCallout: "Sixty seconds was the test. Here's the longer version. Five minutes, eighteen questions."
 relatedReading:
   - title: "Your Body Knows Before You Do"
     url: /field-notes/your-body-knows-before-you-do/
