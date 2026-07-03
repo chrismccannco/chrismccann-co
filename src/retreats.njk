@@ -93,6 +93,63 @@ permalink: /retreats/index.html
       margin-bottom: 0 !important;
       max-width: none;
     }
+    .retreat-testimonials {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-gray);
+      text-align: center;
+    }
+    .retreat-testimonials blockquote {
+      margin: 0;
+      padding: 0;
+    }
+    .retreat-testimonials .t-featured p {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--black);
+    }
+    .retreat-testimonials .t-featured cite {
+      display: block;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 1rem;
+    }
+    .retreat-testimonials .t-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--light-gray);
+    }
+    .retreat-testimonials .t-small p {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--black);
+      margin: 0;
+    }
+    .retreat-testimonials .t-small cite {
+      display: block;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.85rem;
+    }
     @media (max-width: 768px) {
       main.retreat-layout {
         grid-template-columns: 1fr;
@@ -101,6 +158,10 @@ permalink: /retreats/index.html
       .retreat-sidebar {
         position: static;
         order: -1;
+      }
+      .retreat-testimonials .t-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
     }
   </style>
@@ -161,6 +222,24 @@ permalink: /retreats/index.html
       </div>
     </aside>
   </main>
+
+  <div class="retreat-testimonials fade-in">
+    <blockquote class="t-featured">
+      <p>"I feel more whole in my being. Everything you helped to illuminate — I'm feeling really, really good."</p>
+      <cite>Retreat attendee</cite>
+    </blockquote>
+
+    <div class="t-grid">
+      <blockquote class="t-small">
+        <p>"The intimacy was incredible. Loved the small group."</p>
+        <cite>Retreat attendee</cite>
+      </blockquote>
+      <blockquote class="t-small">
+        <p>"I did not know what to expect. It was incredible."</p>
+        <cite>Retreat attendee</cite>
+      </blockquote>
+    </div>
+  </div>
 {% endblock %}
 
 {% block subscribe %}
