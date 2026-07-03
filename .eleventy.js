@@ -10,15 +10,32 @@ module.exports = function(eleventyConfig) {
 
   // Sort essays collection by date descending
   eleventyConfig.addCollection("essays", function(collectionApi) {
-    return collectionApi.getFilteredByTag("essays").sort((a, b) => {
-      return b.date - a.date;
-    });
+    return collectionApi.getFilteredByTag("essays")
+      .filter((item) => item.inputPath.endsWith(".md"))
+      .sort((a, b) => {
+        return b.date - a.date;
+      });
   });
 
   // Date display filter: "May 2026"
   eleventyConfig.addFilter("dateDisplay", function(date) {
     const d = new Date(date);
     return d.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+  });
+
+  // Reading time filter (from rendered HTML content)
+  eleventyConfig.addFilter("readingTime", function(html) {
+    if (!html) return "1 min";
+    const text = String(html).replace(/<[^>]*>/g, " ");
+    const words = text.trim().split(/\s+/).filter(Boolean).length;
+    const minutes = Math.max(1, Math.round(words / 200));
+    return minutes + " min";
+  });
+
+  // Short month/year display: "May 2026"
+  eleventyConfig.addFilter("monthYear", function(date) {
+    const d = new Date(date);
+    return d.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
   });
 
   // ISO date filter for sitemap

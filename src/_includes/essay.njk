@@ -12,104 +12,119 @@ ogType: article
   "description": {{ description | dump | safe }},
   "url": "{{ site.siteUrl }}{{ permalink }}",
   "image": "{{ site.defaultOgImage }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.author }}",
-    "url": "{{ site.siteUrl }}"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "{{ site.author }}",
-    "url": "{{ site.siteUrl }}"
-  },
-  "isPartOf": {
-    "@type": "Blog",
-    "name": "Field Notes",
-    "url": "{{ site.siteUrl }}/field-notes"
-  },
+  "author": { "@type": "Person", "name": "{{ site.author }}", "url": "{{ site.siteUrl }}" },
+  "publisher": { "@type": "Person", "name": "{{ site.author }}", "url": "{{ site.siteUrl }}" },
+  "isPartOf": { "@type": "Blog", "name": "Field Notes", "url": "{{ site.siteUrl }}/field-notes" },
   "datePublished": "{{ date | isoDate }}",
   "mainEntityOfPage": "{{ site.siteUrl }}{{ permalink }}"
 }
 </script>
 {% endblock %}
 
-{% block header %}
+{% block pagestyle %}
+<style>
+  .article-ph { max-width: 720px; margin: 0 auto; padding: 80px var(--px) 48px; }
+  .article-ph .ph-eye { margin-bottom: 20px; }
+  .article-ph .ph-title { font-size: 46px; }
+  hr.article-rule { border: none; border-top: 1px solid var(--ink); max-width: 720px; margin: 0 auto; }
+  .article-prose { max-width: 720px; margin: 0 auto; padding: 48px var(--px) 0; }
+  .article-prose p { font-size: 20px; line-height: 1.8; color: var(--muted); margin-bottom: 24px; text-wrap: pretty; }
+  .article-prose p:last-child { margin-bottom: 0; }
+  .article-prose a { color: var(--ink); border-bottom: 1px solid var(--line2); transition: border-color .15s; }
+  .article-prose a:hover { border-bottom-color: var(--ink); }
+  .article-foot { max-width: 720px; margin: 0 auto; padding: 40px var(--px) 0; }
+  .article-callout { font-size: 18px; font-style: italic; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+  .article-callout-link { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: var(--rust); }
+  .article-back { max-width: 720px; margin: 0 auto; padding: 32px var(--px) 80px; }
+  .article-back a { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); transition: color .15s; }
+  .article-back a:hover { color: var(--ink); }
+  .related { max-width: 720px; margin: 0 auto; padding: 0 var(--px) 32px; border-top: 1px solid var(--line); padding-top: 32px; }
+  .related h3 { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; }
+  .related ul { list-style: none; }
+  .related li { margin-bottom: 10px; }
+  .related a { color: var(--ink); border-bottom: 1px solid var(--line2); font-size: 16px; }
+  .related a:hover { border-bottom-color: var(--ink); }
+  @media (max-width: 860px) {
+    .article-ph { padding: 56px var(--px) 40px; }
+    .article-ph .ph-title { font-size: 32px; }
+    .article-prose p { font-size: 18px; }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-<article id="main-content" class="fade-in">
-  <header class="article-header">
-    <div class="article-meta">{{ date | dateDisplay }}</div>
-    <h1 class="article-title">{{ title }}</h1>
-  </header>
-  <div class="article-body">
+<article>
+  <div class="ph article-ph">
+    <div class="ph-eye">{{ date | dateDisplay }}</div>
+    <h1 class="ph-title">{{ title }}</h1>
+  </div>
+  <hr class="ph-rule article-rule">
+
+  <div class="article-prose">
     {{ content | safe }}
   </div>
-  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e8e6e2;">
-    <p style="font-style: italic; color: #666; font-size: 1.05rem; line-height: 1.7;">{{ assessmentCallout if assessmentCallout else "The Field Assessment asks eighteen questions the quarterly review won't." }}</p>
-    <p style="margin-top: 0.5rem;"><a class="inline-link" href="/field-assessment/">Take the Field Assessment &rarr;</a></p>
+
+  <div class="article-foot">
+    <p class="article-callout">{{ assessmentCallout if assessmentCallout else "The Field Assessment asks eighteen questions the quarterly review won't." }}</p>
+    <a class="article-callout-link" href="/field-assessment/">TAKE THE FIELD ASSESSMENT &rarr;</a>
+  </div>
+
+  {% if relatedReading %}
+  <div class="related">
+    <h3>Related Reading</h3>
+    <ul>
+      {% for item in relatedReading %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="article-back">
+    <a href="/field-notes/">&larr; All Field Notes</a>
   </div>
 </article>
-
-<div class="article-nav fade-in">
-  <a href="/field-notes/" class="back-link">&larr; All Field Notes</a>
-</div>
-
-{% if relatedReading %}
-<div class="related-reading" style="max-width: var(--max-w); margin: 2.5rem auto; padding: 1.5rem 2rem; border-top: 1px solid var(--border, #e8e4de);">
-  <h3 style="font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary, #888); margin-bottom: 1rem; font-weight: 500;">Related Reading</h3>
-  <ul style="list-style: none; padding: 0; margin: 0;">
-    {% for item in relatedReading %}
-    <li style="margin-bottom: 0.5rem;"><a href="{{ item.url }}" style="text-decoration: none; color: inherit; border-bottom: 1px solid var(--border, #e8e4de);">{{ item.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
 {% endblock %}
 
 {% block subscribe %}
-<div id="signup" class="signup-section fade-in">
-  <h2 style="font-family: var(--sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem;">Field Notes</h2>
-  <p style="font-family: var(--serif); font-size: 16px; color: rgba(255,255,255,0.9); margin-bottom: 0.35rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.6;">The room shifts when you walk in. You know this.</p>
-  <p style="font-family: var(--serif); font-size: 14px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto;">Twice a month.</p>
-  <form id="pageSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
-    <input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
-      style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
-    <button type="submit" id="pageSubBtn"
-      style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">I'm in</button>
-  </form>
-  <div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You&rsquo;re in. Check your inbox.</div>
-  <div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
-  <script>
-  document.getElementById('pageSubscribe').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const email = document.getElementById('pageEmail').value.trim();
-    const btn = document.getElementById('pageSubBtn');
-    if (!email) return;
-    btn.textContent = '...';
-    btn.disabled = true;
-    try {
-      const res = await fetch('/.netlify/functions/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
-      });
-      if (res.ok) {
-        document.getElementById('pageSubscribe').style.display = 'none';
-        document.getElementById('pageSubSuccess').style.display = 'block';
-      } else {
-        document.getElementById('pageSubError').style.display = 'block';
-        btn.textContent = "I'm in";
-        btn.disabled = false;
-      }
-    } catch (err) {
-      document.getElementById('pageSubError').style.display = 'block';
-      btn.textContent = "I'm in";
-      btn.disabled = false;
-    }
-  });
-  </script>
+<div class="sub-band">
+  <div class="sub-band-inner">
+    <h2>Field Notes Newsletter</h2>
+    <p>The room shifts when you walk in. You know this. Twice a month.</p>
+    <form class="sub-form" id="subBandForm" novalidate>
+      <input type="email" id="bandEmail" placeholder="you@work.com" aria-label="Email address" required>
+      <button type="submit" id="bandBtn">I&rsquo;M IN</button>
+    </form>
+    <div class="sub-success" id="bandSuccess">You&rsquo;re in. Check your inbox.</div>
+    <div class="sub-error" id="bandError">Something went wrong &mdash; try again.</div>
+  </div>
 </div>
+{% endblock %}
 
-<div class="divider"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+{% block scripts %}
+<script>
+document.getElementById('subBandForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('bandEmail').value.trim();
+  const btn = document.getElementById('bandBtn');
+  if (!email) return;
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/.netlify/functions/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email })
+    });
+    if (res.ok) {
+      document.getElementById('subBandForm').style.display = 'none';
+      document.getElementById('bandSuccess').style.display = 'block';
+    } else {
+      document.getElementById('bandError').style.display = 'block';
+      btn.textContent = 'I’M IN'; btn.disabled = false;
+    }
+  } catch (err) {
+    document.getElementById('bandError').style.display = 'block';
+    btn.textContent = 'I’M IN'; btn.disabled = false;
+  }
+});
+</script>
 {% endblock %}

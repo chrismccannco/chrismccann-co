@@ -1,287 +1,168 @@
 ---
 title: "Retreats — Chris McCann"
-description: "Private leadership retreats with Chris McCann and Dr. Carlos Warter. Consciousness, embodied presence, and what most leadership culture ignores. By application."
-ogDescription: "Private retreats with Chris McCann and Dr. Carlos Warter. Small group. 3-5 days. Inner work for people who've stopped pretending the résumé is the whole story."
+description: "Private retreats with Chris McCann and Dr. Carlos Warter. Inner work for people who've stopped pretending the résumé is the whole story."
+ogDescription: "Private retreats with Chris McCann and Dr. Carlos Warter."
 canonicalUrl: "/retreats/"
 permalink: /retreats/index.html
 ---
 {%- extends "base.njk" -%}
 
-{% block head %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Private Retreats with Chris McCann and Dr. Carlos Warter",
-    "url": "https://chrismccann.co/retreats",
-    "description": "Private retreats for leaders. Small group. 3-5 days. Inner work for people who've stopped pretending the résumé is the whole story.",
-    "provider": {
-      "@type": "Person",
-      "name": "Chris McCann",
-      "url": "https://chrismccann.co"
-    }
+{% block pagestyle %}
+<style>
+  .retreats-wrap { max-width: 1280px; margin: 0 auto; padding: 64px var(--px) 96px; display: grid; grid-template-columns: 1fr 360px; gap: 80px; }
+  .r-prose p { font-size: 19px; line-height: 1.72; color: var(--muted); margin-bottom: 22px; text-wrap: pretty; }
+  .r-prose p:last-child { margin-bottom: 0; }
+  .r-details { margin-top: 36px; }
+  .r-detail { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .r-detail:first-child { border-top: 1px solid var(--line); }
+  .r-detail h3 { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--rust); margin-bottom: 12px; }
+  .r-detail p { font-size: 17px; line-height: 1.65; color: var(--muted); }
+  .r-detail p + p { margin-top: 10px; }
+  .r-cta { margin-top: 40px; }
+  .r-cta a { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; background: var(--ink); color: var(--paper); padding: 15px 28px; border-radius: 6px; display: inline-block; transition: background .15s; }
+  .r-cta a:hover { background: var(--rust); }
+  .r-sidebar { padding-top: 80px; }
+  .r-card { background: var(--surface); border: 1px solid var(--line); padding: 32px 28px; margin-bottom: 20px; }
+  .r-card-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; }
+  .r-card-intro { font-size: 16px; line-height: 1.65; color: var(--muted); margin-bottom: 20px; }
+  .r-card-details { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--faint); display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .r-card-details span::before { content: '— '; color: var(--rust); }
+  .r-book { background: var(--surface); border: 1px solid var(--line); padding: 28px; }
+  .r-book-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; }
+  .r-book p { font-size: 16px; line-height: 1.65; color: var(--muted); margin-bottom: 12px; }
+  .r-book p:last-child { margin-bottom: 0; }
+  .r-book-pub { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--faint); }
+  .r-testimonials { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 80px var(--px); background: var(--surface); }
+  .r-testimonials-inner { max-width: 1280px; margin: 0 auto; }
+  .r-t-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--rust); margin-bottom: 48px; text-align: center; }
+  .r-t-featured { text-align: center; padding-bottom: 56px; margin-bottom: 56px; border-bottom: 1px solid var(--line); }
+  .r-t-featured p { font-size: 26px; font-style: italic; font-weight: 300; line-height: 1.5; color: var(--ink); max-width: 640px; margin: 0 auto 20px; }
+  .r-t-featured cite { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); font-style: normal; }
+  .r-t-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .r-t-small p { font-size: 17px; font-style: italic; line-height: 1.65; color: var(--muted); margin-bottom: 14px; }
+  .r-t-small cite { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); font-style: normal; }
+  @media (max-width: 640px) { .r-t-grid { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 860px) {
+    .retreats-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px var(--px) 64px; }
+    .r-sidebar { padding-top: 0; }
   }
-  </script>
-  <style>
-    main.retreat-layout {
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 4rem;
-      max-width: 940px;
-      padding: 0 2rem;
-      margin: 0 auto;
-      align-items: start;
-    }
-    .retreat-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      position: sticky;
-      top: 5rem;
-    }
-    .retreat-box {
-      background: #ffffff;
-      border: 1px solid var(--light-gray);
-      padding: 1.6rem 1.5rem;
-    }
-    .retreat-box-label {
-      font-family: var(--sans);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #8C4733;
-      margin-bottom: 1rem;
-    }
-    .retreat-box-headline {
-      font-family: var(--serif);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 0 !important;
-      max-width: none;
-    }
-    .retreat-box-divider {
-      border: none;
-      border-top: 1px solid var(--light-gray);
-      margin: 1.1rem 0;
-    }
-    .retreat-box-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .retreat-box-list li {
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: var(--gray);
-      padding: 0.22rem 0;
-      letter-spacing: 0.02em;
-      display: flex;
-      gap: 0.5rem;
-    }
-    .retreat-box-list li::before {
-      content: '—';
-      color: var(--gray);
-      flex-shrink: 0;
-    }
-    .retreat-box-meta {
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      color: #aaa;
-      letter-spacing: 0.03em;
-      margin-top: 1rem !important;
-      margin-bottom: 0 !important;
-      max-width: none;
-    }
-    .retreat-testimonials {
-      max-width: 940px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--light-gray);
-      border-bottom: 1px solid var(--light-gray);
-      text-align: center;
-    }
-    .retreat-testimonials blockquote {
-      margin: 0;
-      padding: 0;
-    }
-    .retreat-testimonials .t-featured p {
-      font-family: var(--serif);
-      font-size: 1.55rem;
-      font-style: italic;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: 0 auto;
-      color: var(--black);
-    }
-    .retreat-testimonials .t-featured cite {
-      display: block;
-      font-family: var(--sans);
-      font-style: normal;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-top: 1rem;
-    }
-    .retreat-testimonials .t-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--light-gray);
-    }
-    .retreat-testimonials .t-small p {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-style: italic;
-      line-height: 1.65;
-      color: var(--black);
-      margin: 0;
-    }
-    .retreat-testimonials .t-small cite {
-      display: block;
-      font-family: var(--sans);
-      font-style: normal;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-top: 0.85rem;
-    }
-    @media (max-width: 768px) {
-      main.retreat-layout {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .retreat-sidebar {
-        position: static;
-        order: -1;
-      }
-      .retreat-testimonials .t-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-  </style>
-{% endblock %}
-
-{% block header %}
-  <header class="fade-in">
-    <h1 class="page-title">Private Retreats</h1>
-    <div class="subhead">With Chris McCann and Dr. Carlos Warter.</div>
-  </header>
-
-  <div class="divider fade-in"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+</style>
 {% endblock %}
 
 {% block content %}
-  <main id="main-content" class="fade-in retreat-layout">
-    <section class="retreat-main">
-      <p>This is inner work for people who've stopped pretending the résumé is the whole story.</p>
+<div class="ph">
+  <div class="ph-eye">Private Retreats</div>
+  <h1 class="ph-title">With Chris McCann<br>and <em style="color:var(--rust);font-style:italic;">Dr. Carlos Warter.</em></h1>
+</div>
+<hr class="ph-rule">
 
-      <p><a class="inline-link" href="https://drwarter.com" target="_blank" rel="noopener">Carlos</a> is a physician, psychiatrist, and author who's spent fifty years studying consciousness and what it means to actually pay attention. I spent fifteen years leading corporate sales teams before I noticed the thing I was optimizing around was never on the dashboard. Together we work with what's happening inside the person, not the persona.</p>
-
-      <p>What you're carrying that nobody asked you to carry. Why the version of you everyone sees is different from the one that shows up when nobody's watching. Where you actually are versus where you thought you'd be by now.</p>
-
-      <p>Some of it will be uncomfortable in ways that surprise you. Most of what matters happens in the space between the sessions, in conversations that weren't scheduled and silences that weren't awkward.</p>
-
-      <div class="retreat-detail">
+<div class="retreats-wrap">
+  <div>
+    <div class="r-prose">
+      <p>This is inner work for people who&rsquo;ve stopped pretending the r&eacute;sum&eacute; is the whole story.</p>
+      <p><a href="https://drwarter.com/" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--line2);">Carlos</a> is a physician, psychiatrist, and author who&rsquo;s spent fifty years studying consciousness and what it means to actually pay attention. I spent thirty years leading teams before I noticed the thing I was optimizing around was never on the dashboard. Together we work with what&rsquo;s happening inside the person, not the persona.</p>
+      <p>What you&rsquo;re carrying that nobody asked you to carry. Why the version of you everyone sees is different from the one that shows up when nobody&rsquo;s watching. Where you actually are versus where you thought you&rsquo;d be by now.</p>
+      <p>Some of it will be uncomfortable in ways that surprise you. Most of what matters happens in the space between the sessions, in conversations that weren&rsquo;t scheduled and silences that weren&rsquo;t awkward.</p>
+    </div>
+    <div class="r-details">
+      <div class="r-detail">
         <h3>Who shows up</h3>
-        <p>People who've done the right things. Built the career, the family, the life that checks every box they drew for themselves at thirty. Figured it would feel different when they got there. It doesn't.</p>
+        <p>People who&rsquo;ve done the right things. Built the career, the family, the life that checks every box they drew for themselves at thirty. Figured it would feel different when they got there. It doesn&rsquo;t.</p>
         <p>People who already know the difference between consuming an experience and being changed by one.</p>
       </div>
-
-      <div class="retreat-detail">
+      <div class="r-detail">
         <h3>What changes</h3>
-        <p>A shift at home, at work, in the ordinary moments that used to run on autopilot. Most people who come through can't explain it. They just know the weight they were carrying wasn't theirs to begin with.</p>
+        <p>A shift at home, at work, in the ordinary moments that used to run on autopilot. Most people who come through can&rsquo;t explain it. They just know the weight they were carrying wasn&rsquo;t theirs to begin with.</p>
       </div>
-
-      <p style="margin-top: 2rem;">If any of this landed, <a class="inline-link" href="mailto:chris@chrismccann.co">write me</a>.</p>
-    </section>
-
-    <aside class="retreat-sidebar">
-      <div class="retreat-box">
-        <div class="retreat-box-label">At a Glance</div>
-        <p class="retreat-box-headline">Private. By application.</p>
-        <hr class="retreat-box-divider">
-        <ul class="retreat-box-list">
-          <li>Up to 12 people</li>
-          <li>3–5 days</li>
-          <li>Latin America, US, Europe</li>
-          <li>No agenda in advance</li>
-          <li>Application required</li>
-        </ul>
+      <div class="r-detail">
+        <h3>Format</h3>
+        <p>Up to twelve people. Three to five days. No agenda distributed in advance. Locations have included Latin America, the US, and Europe.</p>
       </div>
-
-      <div class="retreat-box">
-        <div class="retreat-box-label">The Book</div>
-        <p class="retreat-box-headline">Co-authoring with Dr. Carlos Warter on the nature of the field — what it is, how to sense it, what it means for how humans organize and evolve.</p>
-        <p class="retreat-box-meta">Park Street Press — Spring 2027</p>
+    </div>
+    <div class="r-cta">
+      <a href="mailto:{{ site.email }}">IF ANY OF THIS LANDED, WRITE ME &rarr;</a>
+    </div>
+  </div>
+  <div class="r-sidebar">
+    <div class="r-card">
+      <div class="r-card-lbl">At a Glance</div>
+      <div class="r-card-intro">Private. By application.</div>
+      <div class="r-card-details">
+        <span>Up to 12 people</span>
+        <span>3&ndash;5 days</span>
+        <span>Latin America, US, Europe</span>
+        <span>No agenda in advance</span>
+        <span>Application required</span>
       </div>
-    </aside>
-  </main>
+    </div>
+    <div class="r-book">
+      <div class="r-book-lbl">The Book</div>
+      <p>Co-authoring with Dr. Carlos Warter on the nature of the field &mdash; what it is, how to sense it, what it means for how humans organize and evolve.</p>
+      <p class="r-book-pub">Park Street Press &mdash; Spring 2027</p>
+    </div>
+  </div>
+</div>
 
-  <div class="retreat-testimonials fade-in">
-    <blockquote class="t-featured">
-      <p>"I feel more whole in my being. Everything you helped to illuminate — I'm feeling really, really good."</p>
+<div class="r-testimonials">
+  <div class="r-testimonials-inner">
+    <div class="r-t-eyebrow">What attendees say</div>
+    <blockquote class="r-t-featured">
+      <p>&ldquo;I feel more whole in my being. Everything you helped to illuminate &mdash; I&rsquo;m feeling really, really good.&rdquo;</p>
       <cite>Retreat attendee</cite>
     </blockquote>
-
-    <div class="t-grid">
-      <blockquote class="t-small">
-        <p>"The intimacy was incredible. Loved the small group."</p>
+    <div class="r-t-grid">
+      <blockquote class="r-t-small">
+        <p>&ldquo;The intimacy was incredible. Loved the small group.&rdquo;</p>
         <cite>Retreat attendee</cite>
       </blockquote>
-      <blockquote class="t-small">
-        <p>"I did not know what to expect. It was incredible."</p>
+      <blockquote class="r-t-small">
+        <p>&ldquo;I did not know what to expect. It was incredible.&rdquo;</p>
         <cite>Retreat attendee</cite>
       </blockquote>
     </div>
   </div>
+</div>
 {% endblock %}
 
 {% block subscribe %}
-  <div id="signup" class="signup-section fade-in">
-    <h2>Field Notes</h2>
-    <p>The room shifts when you walk in. You know this.</p>
-    <form id="pageSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
-      <input type="email" id="pageEmail" required placeholder="Your email" aria-label="Email address"
-        style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
-      <button type="submit" id="pageSubBtn"
-        style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">I'm in</button>
+<div class="sub-band">
+  <div class="sub-band-inner">
+    <h2>Field Notes Newsletter</h2>
+    <p>Retreat announcements go to the newsletter first. Twice a month, free.</p>
+    <form class="sub-form" id="subBandForm" novalidate>
+      <input type="email" id="bandEmail" placeholder="you@work.com" aria-label="Email address" required>
+      <button type="submit" id="bandBtn">I&rsquo;M IN</button>
     </form>
-    <div id="pageSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
-    <div id="pageSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
-    <script>
-    document.getElementById('pageSubscribe').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const email = document.getElementById('pageEmail').value.trim();
-      const btn = document.getElementById('pageSubBtn');
-      if (!email) return;
-      btn.textContent = '...';
-      btn.disabled = true;
-      try {
-        const res = await fetch('/.netlify/functions/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email })
-        });
-        if (res.ok) {
-          document.getElementById('pageSubscribe').style.display = 'none';
-          document.getElementById('pageSubSuccess').style.display = 'block';
-        } else {
-          document.getElementById('pageSubError').style.display = 'block';
-          btn.textContent = 'I\'m in';
-          btn.disabled = false;
-        }
-      } catch (err) {
-        document.getElementById('pageSubError').style.display = 'block';
-        btn.textContent = 'I\'m in';
-        btn.disabled = false;
-      }
-    });
-    </script>
+    <div class="sub-success" id="bandSuccess">You&rsquo;re in. Check your inbox.</div>
+    <div class="sub-error" id="bandError">Something went wrong &mdash; try again.</div>
   </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('subBandForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('bandEmail').value.trim();
+  const btn = document.getElementById('bandBtn');
+  if (!email) return;
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/.netlify/functions/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email })
+    });
+    if (res.ok) {
+      document.getElementById('subBandForm').style.display = 'none';
+      document.getElementById('bandSuccess').style.display = 'block';
+    } else {
+      document.getElementById('bandError').style.display = 'block';
+      btn.textContent = 'I’M IN'; btn.disabled = false;
+    }
+  } catch (err) {
+    document.getElementById('bandError').style.display = 'block';
+    btn.textContent = 'I’M IN'; btn.disabled = false;
+  }
+});
+</script>
 {% endblock %}

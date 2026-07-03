@@ -1,6 +1,7 @@
 ---
 title: "About — Chris McCann"
-description: "Fifteen years leading corporate sales teams. Co-authoring a book on consciousness and leadership with Dr. Carlos Warter (Park Street Press, spring 2027)."
+description: "Twenty-five years leading teams. Fifteen in SaaS. Now studying what changes when the leader changes first."
+ogDescription: "Twenty-five years leading teams. Fifteen in SaaS. Now studying what changes when the leader changes first."
 canonicalUrl: "/about/"
 permalink: /about/index.html
 ---
@@ -19,51 +20,70 @@ permalink: /about/index.html
     "name": "Chris McCann",
     "url": "https://chrismccann.co",
     "image": "https://chrismccann.co/images/og-default.png",
-    "sameAs": ["https://www.linkedin.com/in/chrismccannco/"]
+    "sameAs": ["{{ site.linkedIn }}"]
   }
 }
 </script>
 {% endblock %}
 
-{% block header %}
-<header class="fade-in">
-<h1 class="page-title">The short version</h1>
-</header>
-
-<div class="divider fade-in"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+{% block pagestyle %}
+<style>
+  .about-wrap { max-width: 1280px; margin: 0 auto; padding: 64px var(--px) 96px; display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
+  .prose p { font-size: 19px; line-height: 1.72; color: var(--muted); margin-bottom: 20px; text-wrap: pretty; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose a { color: var(--ink); border-bottom: 1px solid var(--line2); transition: border-color .15s; }
+  .prose a:hover { border-bottom-color: var(--ink); }
+  .about-photo { aspect-ratio: 4/5; border: 1px solid var(--line2); overflow: hidden; background: var(--surface); margin-bottom: 32px; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: grayscale(100%); }
+  .sidebar-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; }
+  .sidebar-links { display: flex; flex-direction: column; gap: 10px; }
+  .sidebar-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); transition: color .15s; letter-spacing: .06em; }
+  .sidebar-links a:hover { color: var(--ink); }
+  @media (max-width: 860px) {
+    .about-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px var(--px) 64px; }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-<main id="main-content" class="fade-in">
-<section>
-<div class="headshot-wrapper">
-<img class="headshot" src="/images/chris-mccann.jpg" alt="Chris McCann" loading="lazy">
+<div class="ph">
+  <div class="ph-eye">About</div>
+  <h1 class="ph-title">Chris McCann</h1>
+  <p class="ph-sub">Twenty-five years leading teams. A student of consciousness, leadership, and the space between.</p>
+</div>
+<hr class="ph-rule">
+
+<div class="about-wrap">
+  <div class="prose">
+    <p>I&rsquo;ve spent twenty-five years leading teams. The last fifteen in SaaS, building and scaling go-to-market organizations in emerging tech categories. Before that, I managed restaurants. Opened Boston Chicken stores in the mid-nineties as a twenty-year-old. Ran a Hooters, where fifty front-of-house staff and fifty kitchen workers taught me more about group dynamics than any psychology class would. The job was the same one I have now, just without the laptops. Read the room. Set the tone.</p>
+    <p>The answer was never on a clipboard. It was never in the pipeline either.</p>
+    <p>The mistake I made was thinking managing and leading were the same thing. I operated that way for years, optimizing things that didn&rsquo;t need optimizing while ignoring what was actually happening in the room.</p>
+    <p>Collective intelligence turns out to be less about who&rsquo;s in the room and more about what&rsquo;s happening between them. Teams sync physiologically. Brain activity aligns during real communication. <a href="https://hassonlab.princeton.edu/" target="_blank" rel="noopener">The research exists.</a> What&rsquo;s missing is the practice.</p>
+    <p>The deeper I went into what creates that field, the more I had to turn the lens on myself. What happens when twelve people are in a room together. What&rsquo;s happening inside the person leading it.</p>
+    <p>I completed the <a href="https://www.vitalpsychedelictraining.com/" target="_blank" rel="noopener">Vital</a> program in psychedelic studies to understand what happens when people stop believing their own story, and have to figure out who they are without it.</p>
+    <p>Co-authoring a book with <a href="https://drwarter.com" target="_blank" rel="noopener">Dr. Carlos Warter</a> (Park Street Press, spring 2027) on the nature of the field itself &mdash; what it is, how to sense it, and what it means for how humans organize, decide, and evolve.</p>
+    <p><a href="/field-notes/">Field Notes</a> is where I work through the questions before the book has answers for them.</p>
+    <p style="color:var(--faint);font-size:17px;">Also an ordained <a href="https://dudeism.com/" target="_blank" rel="noopener">Dudeist</a> priest. Takes it exactly as seriously as it deserves.</p>
+  </div>
+  <div>
+    <div class="about-photo">
+      <img src="/images/chris-mccann.jpg" alt="Chris McCann" width="640" height="800">
+    </div>
+    <div class="sidebar-label">Find me</div>
+    <div class="sidebar-links">
+      <a href="{{ site.linkedIn }}" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+      <a href="{{ site.twitter }}" target="_blank" rel="noopener">X &rarr;</a>
+      <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram &rarr;</a>
+      <a href="mailto:{{ site.email }}">Send a note &rarr;</a>
+    </div>
+  </div>
 </div>
 
-<p>I've spent twenty-five years leading teams. The last fifteen in SaaS, building and scaling go-to-market organizations in emerging tech categories. Before that, I managed restaurants. Opened Boston Chicken stores in the mid-nineties as a twenty-year-old. Ran a Hooters, where fifty front-of-house staff and fifty kitchen workers taught me more about group dynamics than any psychology class would. The job was the same one I have now, just without the laptops. Read the room. Set the tone.</p>
-
-<p>The answer was never on a clipboard. It was never in the pipeline either.</p>
-
-<p>The mistake I made was thinking managing and leading were the same thing. I operated that way for years, optimizing things that didn't need optimizing while ignoring what was actually happening in the room.</p>
-
-<p>Collective intelligence turns out to be less about who's in the room and more about what's happening between them. Teams sync physiologically. Brain activity aligns during real communication. The <a class="inline-link" href="https://hassonlab.princeton.edu/" target="_blank" rel="noopener">research exists</a>. What's missing is the practice.</p>
-
-<p>The deeper I went into what creates that field, the more I had to turn the lens on myself. What happens when twelve people are in a room together. What's happening inside the person leading it.</p>
-
-<p>I completed the <a class="inline-link" href="https://www.vitalpsychedelictraining.com/" target="_blank" rel="noopener">Vital</a> program in psychedelic studies to understand what happens when people stop believing their own story, and have to figure out who they are without it.</p>
-
-<p>Co-authoring a book with <a class="inline-link" href="https://drwarter.com" target="_blank" rel="noopener">Dr. Carlos Warter</a> (Park Street Press, spring 2027) on the nature of the field itself &mdash; what it is, how to sense it, and what it means for how humans organize, decide, and evolve.</p>
-
-<p><a class="inline-link" href="/field-notes/">Field Notes</a> is where I work through the questions before the book has answers for them.</p>
-
-<p>Also an ordained <a class="inline-link" href="https://dudeism.com/" target="_blank" rel="noopener">Dudeist</a> priest. Takes it exactly as seriously as it deserves.</p>
-
-</section>
-</main>
-
-<div class="signup-section fade-in">
-<h2 style="font-family: var(--sans); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">The Field Assessment</h2>
-<p style="font-family: var(--serif); font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">Eighteen questions. Five minutes. Two parts. What you&rsquo;re carrying into the room. What the room is doing with it.</p>
-<a class="cta-btn" href="/field-assessment/" style="background: var(--white); color: var(--black); border-color: var(--white);">Take the Assessment</a>
+<div class="assess-cta">
+  <div class="assess-cta-inner">
+    <div class="assess-cta-eye">The Field Assessment</div>
+    <h2>Eighteen questions on what you&rsquo;re carrying into the room &mdash; and what it&rsquo;s doing when you get there.</h2>
+    <a href="/field-assessment/">TAKE THE ASSESSMENT &rarr;</a>
+  </div>
 </div>
 {% endblock %}
