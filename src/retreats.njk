@@ -22,6 +22,88 @@ permalink: /retreats/index.html
     }
   }
   </script>
+  <style>
+    main.retreat-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      max-width: 940px;
+      padding: 0 2rem;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .retreat-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: sticky;
+      top: 5rem;
+    }
+    .retreat-box {
+      background: #ffffff;
+      border: 1px solid var(--light-gray);
+      padding: 1.6rem 1.5rem;
+    }
+    .retreat-box-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8C4733;
+      margin-bottom: 1rem;
+    }
+    .retreat-box-headline {
+      font-family: var(--serif);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0 !important;
+      max-width: none;
+    }
+    .retreat-box-divider {
+      border: none;
+      border-top: 1px solid var(--light-gray);
+      margin: 1.1rem 0;
+    }
+    .retreat-box-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .retreat-box-list li {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--gray);
+      padding: 0.22rem 0;
+      letter-spacing: 0.02em;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .retreat-box-list li::before {
+      content: '—';
+      color: var(--gray);
+      flex-shrink: 0;
+    }
+    .retreat-box-meta {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: #aaa;
+      letter-spacing: 0.03em;
+      margin-top: 1rem !important;
+      margin-bottom: 0 !important;
+      max-width: none;
+    }
+    @media (max-width: 768px) {
+      main.retreat-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .retreat-sidebar {
+        position: static;
+        order: -1;
+      }
+    }
+  </style>
 {% endblock %}
 
 {% block header %}
@@ -34,8 +116,8 @@ permalink: /retreats/index.html
 {% endblock %}
 
 {% block content %}
-  <main id="main-content" class="fade-in">
-    <section>
+  <main id="main-content" class="fade-in retreat-layout">
+    <section class="retreat-main">
       <p>This is inner work for people who've stopped pretending the résumé is the whole story.</p>
 
       <p><a class="inline-link" href="https://drwarter.com" target="_blank" rel="noopener">Carlos</a> is a physician, psychiatrist, and author who's spent fifty years studying consciousness and what it means to actually pay attention. I spent fifteen years leading corporate sales teams before I noticed the thing I was optimizing around was never on the dashboard. Together we work with what's happening inside the person, not the persona.</p>
@@ -55,13 +137,29 @@ permalink: /retreats/index.html
         <p>A shift at home, at work, in the ordinary moments that used to run on autopilot. Most people who come through can't explain it. They just know the weight they were carrying wasn't theirs to begin with.</p>
       </div>
 
-      <div class="retreat-detail">
-        <h3>Format</h3>
-        <p>Up to twelve people. Three to five days. No agenda distributed in advance. Locations have included Latin America, the US, and Europe.</p>
-      </div>
-
       <p style="margin-top: 2rem;">If any of this landed, <a class="inline-link" href="mailto:chris@chrismccann.co">write me</a>.</p>
     </section>
+
+    <aside class="retreat-sidebar">
+      <div class="retreat-box">
+        <div class="retreat-box-label">At a Glance</div>
+        <p class="retreat-box-headline">Private. By application.</p>
+        <hr class="retreat-box-divider">
+        <ul class="retreat-box-list">
+          <li>Up to 12 people</li>
+          <li>3–5 days</li>
+          <li>Latin America, US, Europe</li>
+          <li>No agenda in advance</li>
+          <li>Application required</li>
+        </ul>
+      </div>
+
+      <div class="retreat-box">
+        <div class="retreat-box-label">The Book</div>
+        <p class="retreat-box-headline">Co-authoring with Dr. Carlos Warter on the nature of the field — what it is, how to sense it, what it means for how humans organize and evolve.</p>
+        <p class="retreat-box-meta">Park Street Press — Spring 2027</p>
+      </div>
+    </aside>
   </main>
 {% endblock %}
 
