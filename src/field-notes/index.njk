@@ -1,7 +1,7 @@
 ---
 layout: false
 title: "Field Notes — Chris McCann"
-description: "Essays on consciousness, leadership, and what happens in sales rooms that the deck doesn't capture. Field Notes by Chris McCann."
+description: "Observations on consciousness, leadership, and what happens in the room when the two meet."
 ogDescription: "The room shifts when you walk in. You know this. What the quarterly review doesn't measure."
 canonicalUrl: "/field-notes/"
 permalink: /field-notes/index.html
@@ -9,264 +9,113 @@ permalink: /field-notes/index.html
 {%- extends "base.njk" -%}
 
 {% block head %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Field Notes by Chris McCann",
-    "url": "https://chrismccann.co/field-notes",
-    "description": "The room shifts when you walk in. You know this. What the quarterly review doesn't measure.",
-    "author": {
-      "@type": "Person",
-      "name": "Chris McCann",
-      "url": "https://chrismccann.co"
-    }
-  }
-  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Field Notes by Chris McCann",
+  "url": "https://chrismccann.co/field-notes",
+  "description": "The room shifts when you walk in. You know this. What the quarterly review doesn't measure.",
+  "author": { "@type": "Person", "name": "Chris McCann", "url": "https://chrismccann.co" }
+}
+</script>
 {% endblock %}
 
-{% block header %}
-  <header class="fade-in">
-    <h1 class="page-title">Field Notes</h1>
-    <div class="subhead">What the quarterly review doesn't measure.</div>
-  </header>
-
-  <div class="divider fade-in"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+{% block pagestyle %}
+<style>
+  .fn-body { max-width: 1280px; margin: 0 auto; padding: 56px var(--px) 96px; }
+  .fn-spotlight { border-left: 2px solid var(--rust); padding: 16px 0 16px 20px; margin-bottom: 56px; }
+  .fn-spot-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+  .fn-spot-link { font-size: 22px; font-weight: 400; color: var(--ink); transition: color .15s; }
+  .fn-spot-link:hover { color: var(--rust); }
+  .fn-section { margin-bottom: 64px; }
+  .fn-sec-head { border-bottom: 1px solid var(--ink); padding-bottom: 14px; display: flex; align-items: baseline; justify-content: space-between; }
+  .fn-sec-title { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; }
+  .fn-sec-sub { font-size: 15px; color: var(--faint); font-weight: 300; padding: 18px 0 28px; max-width: 600px; }
+  .fn-article { display: grid; grid-template-columns: 88px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); color: var(--ink); transition: padding-left .2s; }
+  .fn-article:hover { padding-left: 8px; }
+  .fn-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--faint); padding-top: 5px; }
+  .fn-art-title { font-size: 26px; font-weight: 400; margin-bottom: 8px; display: block; }
+  .fn-art-excerpt { font-size: 16px; line-height: 1.6; color: var(--muted); font-weight: 300; }
+  @media (max-width: 860px) {
+    .fn-body { padding: 40px var(--px) 64px; }
+    .fn-article { grid-template-columns: 1fr; gap: 8px; }
+    .fn-art-title { font-size: 22px; }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-  <main id="main-content" class="fade-in">
+<div class="ph">
+  <div class="ph-eye">Field Notes</div>
+  <h1 class="ph-title">Dispatches from the work</h1>
+  <p class="ph-sub">Observations on consciousness, leadership, and what happens in the room when the two meet.</p>
+</div>
+<hr class="ph-rule">
 
-    <div class="fade-in" style="border-left: 2px solid var(--black); padding-left: 1.25rem; margin-bottom: 2.5rem;">
-      <p style="font-family: var(--sans); font-size: 0.8rem; color: var(--gray); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem;">New here?</p>
-      <p style="margin: 0;"><a class="inline-link" href="/field-notes/the-judge/">The Judge</a></p>
+<div class="fn-body">
+  {% set latest = collections.essays | first %}
+  <div class="fn-spotlight">
+    <div class="fn-spot-lbl">Latest</div>
+    <a href="{{ latest.url }}" class="fn-spot-link">{{ latest.data.title }} &rarr;</a>
+  </div>
+
+  <div class="fn-section">
+    <div class="fn-sec-head">
+      <div class="fn-sec-title">All Notes</div>
     </div>
-
-    <div class="fade-in" style="margin: 0 0 2.5rem; padding: 1.5rem 0; border-top: 1px solid var(--light-gray); border-bottom: 1px solid var(--light-gray); text-align: center;">
-      <p style="font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;">Field Notes</p>
-      <p style="font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--black); margin-bottom: 0.3rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.6;">Consciousness. Leadership. The gap between them.</p>
-      <p style="font-family: var(--serif); font-size: 0.875rem; font-style: italic; color: var(--gray); opacity: 0.75; margin-bottom: 1.25rem;">Twice a month.</p>
-      <form id="topSubscribe" style="display: inline-flex; gap: 0; max-width: 380px; width: 100%;">
-        <input type="email" id="topEmail" required placeholder="Your email" aria-label="Email address"
-          style="flex: 1; padding: 10px 14px; font-family: var(--sans); font-size: 0.85rem; border: 1px solid var(--light-gray); border-right: none; background: #fff; color: var(--black); outline: none; min-width: 0;">
-        <button type="submit" id="topSubBtn"
-          style="padding: 10px 20px; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; white-space: nowrap; transition: opacity 0.2s;">I'm in</button>
-      </form>
-      <div id="topSubSuccess" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: var(--accent); margin-top: 0.5rem;">You're in. Check your inbox.</div>
-      <div id="topSubError" style="display: none; font-family: var(--sans); font-size: 0.85rem; color: #c0392b; margin-top: 0.5rem;">Something went wrong. Try again.</div>
-      <script>
-      document.getElementById('topSubscribe').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const email = document.getElementById('topEmail').value.trim();
-        const btn = document.getElementById('topSubBtn');
-        if (!email) return;
-        btn.textContent = '...';
-        btn.disabled = true;
-        try {
-          const res = await fetch('/.netlify/functions/subscribe', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
-          });
-          if (res.ok) {
-            document.getElementById('topSubscribe').style.display = 'none';
-            document.getElementById('topSubSuccess').style.display = 'block';
-          } else {
-            document.getElementById('topSubError').style.display = 'block';
-            btn.textContent = 'I\'m in';
-            btn.disabled = false;
-          }
-        } catch (err) {
-          document.getElementById('topSubError').style.display = 'block';
-          btn.textContent = 'I\'m in';
-          btn.disabled = false;
-        }
-      });
-      </script>
-    </div>
-
-    <section class="article-list">
-      <div class="article-item" style="margin-bottom: 2.5rem;">
-        <h3 class="theme-label">I think I might be the variable</h3>
-        <p class="article-excerpt" style="margin-bottom: 0.75rem;">The strategy hasn't changed. The effort is there. But something in how I'm showing up stopped working, and the usual fixes aren't touching it.</p>
-        <p><span class="arrow">&rarr;</span> <a href="/field-notes/your-body-knows-before-you-do/">Your Body Knows Before You Do</a></p>
-        <p><span class="arrow">&rarr;</span> <a href="/field-notes/you-dont-need-ayahuasca/">You Don't Need Ayahuasca. You Need to Pay Attention.</a></p>
-        <p><span class="arrow">&rarr;</span> <a href="/field-notes/the-space-i-didnt-ask-for/">The Space I Didn't Ask For</a></p>
+    {% for post in collections.essays %}
+    <a href="{{ post.url }}" class="fn-article">
+      <div class="fn-date">{{ post.data.date | monthYear }}</div>
+      <div>
+        <span class="fn-art-title">{{ post.data.title }}</span>
+        <div class="fn-art-excerpt">{{ post.data.description }}</div>
       </div>
-
-      <div class="article-item" style="margin-bottom: 2.5rem;">
-        <h3 class="theme-label">The team has gone somewhere I can't reach</h3>
-        <p class="article-excerpt" style="margin-bottom: 0.75rem;">Same people, same agenda. The nods are there. Something else isn't. The gap between what's being said and what's actually happening keeps widening.</p>
-        <p><span class="arrow">&rarr;</span> <a href="/field-notes/youre-new-were-burnt-out/">You're New. We're Burnt Out.</a></p>
-        <p><span class="arrow">&rarr;</span> <a href="/field-notes/the-one-minute-test/">The One-Minute Test</a></p>
-        <p><span class="arrow">&rarr;</span> <a href="/field-notes/the-95-percent-lie/">The 95% Lie</a></p>
-      </div>
-    </section>
-
-    <section class="article-list">
-      <h2 class="section-label">In the room</h2>
-      <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1.75rem;">Leadership, teams, the observable patterns. Where most readers find their way in.</p>
-
-      <div class="article-item">
-        <div class="article-date">June 2026</div>
-        <h3><a href="/field-notes/i-love-you-but-you-keep-fucking-up/">I Love You, But You Keep Fucking Up.</a></h3>
-        <p class="article-excerpt">My boss pulled me into his office and told me he loved me. That wasn&#x27;t the weird part.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">May 2026</div>
-        <h3><a href="/field-notes/the-room-knew-first/">The Room Knew First</a></h3>
-        <p class="article-excerpt">A Tuesday in Q3. A rep closed the biggest deal in company history. The celebration was real. The room felt empty. This is where Field Notes started, and why.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">September 2025</div>
-        <h3><a href="/field-notes/the-95-percent-lie/">The 95% Lie</a></h3>
-        <p class="article-excerpt">You've heard the stat: 95% of AI projects fail. Cue the panic. But ERP systems had 70–90% failure rates in the '90s. Every big shift starts ugly. AI isn't broken. What's broken is trying to bolt it onto organizations built for another decade.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">August 2025</div>
-        <h3><a href="/field-notes/the-one-minute-test/">The One-Minute Test</a></h3>
-        <p class="article-excerpt">If you had sixty seconds to give someone feedback that could change the trajectory of their career, could you do it? Without crushing them? Most leaders can't.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">July 2025</div>
-        <h3><a href="/field-notes/youre-new-were-burnt-out/">You're New. We're Burnt Out.</a></h3>
-        <p class="article-excerpt">PowerPoints full of vision. Words like 'elevate' and 'excellence' tossed around like cilantro. You bring a 30/60/90. We bring trauma, duct tape, and a team watching with crossed arms.</p>
-      </div>
-    </section>
-
-    <section class="article-list">
-      <h2 class="section-label">The search</h2>
-      <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1.75rem;">What transition costs. The questions that show up after the meeting ends.</p>
-
-      <div class="article-item">
-        <div class="article-date">April 2025</div>
-        <h3><a href="/field-notes/the-space-i-didnt-ask-for/">The Space I Didn't Ask For</a></h3>
-        <p class="article-excerpt">No title. No team. No calendar full of meetings. Just space, uncertainty, and a quiet sense that I should be doing something. I've never not worked.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">January 2025</div>
-        <h3><a href="/field-notes/what-failure-actually-costs/">What Failure Actually Costs</a></h3>
-        <p class="article-excerpt">Sometimes the breakdown isn't the end. It's the turning point. But nobody talks about what it actually costs to get there.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">March 2024</div>
-        <h3><a href="/field-notes/sales-leadership-and-the-search/">Sales Leadership and the Search</a></h3>
-        <p class="article-excerpt">Beyond the labels, there's a part of me that's been searching for something I couldn't name. This is where that search started to get honest.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">October 2023</div>
-        <h3><a href="/field-notes/only-as-good-as-your-last-deal/">Only As Good As Your Last Deal</a></h3>
-        <p class="article-excerpt">There's an old belief in sales that your value resets with every deal. I lived inside that belief for years. It nearly ate me.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">September 2023</div>
-        <h3><a href="/field-notes/the-call-of-the-wild/">The Call of the Wild</a></h3>
-        <p class="article-excerpt">After a rough August, I went to Glacier National Park. What I found there wasn't insight. It was space.</p>
-      </div>
-    </section>
-
-    <section class="article-list">
-      <h2 class="section-label">What's underneath</h2>
-      <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1.75rem;">Consciousness, attention, identity. The deeper territory.</p>
-
-      <div class="article-item">
-        <div class="article-date">June 2026</div>
-        <h3><a href="/field-notes/the-judge/">The Judge</a></h3>
-        <p class="article-excerpt">Two versions of me, a Bipolar 2 diagnosis, and the third party I never noticed running the room. What changed when I stopped letting him have the last word.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">February 2026</div>
-        <h3><a href="/field-notes/your-body-knows-before-you-do/">Your Body Knows Before You Do</a></h3>
-        <p class="article-excerpt">The hyper-vigilant Sunday night dread that meds and sleep can't fix. The tightness before Monday's meeting. Your body noticed months ago. You just weren't paying attention.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">January 2026</div>
-        <h3><a href="/field-notes/you-dont-need-ayahuasca/">You Don't Need Ayahuasca. You Need to Pay Attention.</a></h3>
-        <p class="article-excerpt">Executives fly somewhere expensive to find themselves, have the breakthrough, post the cryptic Instagram story. Then they jump on the 405 and nothing changes. Recalibration doesn't require a plane ticket.</p>
-      </div>
-
-      <div class="article-item">
-        <div class="article-date">August 2023</div>
-        <h3><a href="/field-notes/in-the-fog/">In the Fog</a></h3>
-        <p class="article-excerpt">Since my diagnosis of Bipolar II, I've learned to recognize the signs. Before that, these feelings were hidden behind performance and coffee and the next meeting.</p>
-      </div>
-    </section>
-  </main>
+    </a>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
 
 {% block subscribe %}
-  <div class="signup-section fade-in">
-    <h2 style="font-family: var(--sans); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;">The Field Assessment</h2>
-    <p style="font-family: var(--serif); font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">Eighteen questions. Five minutes. Two parts. What you&rsquo;re carrying into the room. What the room is doing with it.</p>
-    <a class="cta-btn" href="/field-assessment/" style="background: var(--white); color: var(--black); border-color: var(--white);">Take the Assessment</a>
+<div class="sub-band">
+  <div class="sub-band-inner">
+    <h2>Field Notes Newsletter</h2>
+    <p>Twice a month. Consciousness and leadership. The gap between what you do and what you&rsquo;re carrying when you do it.</p>
+    <form class="sub-form" id="subBandForm" novalidate>
+      <input type="email" id="bandEmail" placeholder="you@work.com" aria-label="Email address" required>
+      <button type="submit" id="bandBtn">I&rsquo;M IN</button>
+    </form>
+    <div class="sub-success" id="bandSuccess">You&rsquo;re in. Check your inbox.</div>
+    <div class="sub-error" id="bandError">Something went wrong &mdash; try again.</div>
   </div>
+</div>
+{% endblock %}
 
-  <section class="fade-in" style="max-width: var(--max-w); margin: 0 auto; padding: 0 2rem;">
-    <div class="article-list">
-      <h2 class="section-label">Earlier Work</h2>
-      <p style="font-size: 0.95rem; color: var(--gray); margin-bottom: 2rem;">Where this started. The voice has evolved. The questions haven't.</p>
-
-      <h3 class="theme-label">On State &amp; Self-Awareness</h3>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/how-determine-your-values-chris-mccann" target="_blank" rel="noopener">How to Determine Your Values</a></h3>
-        <p class="article-excerpt">I spent years leading without knowing what I actually stood for.</p>
-      </div>
-
-      <h3 class="theme-label">On Leading Differently</h3>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/end-boss-culture-chris-mccann-clbdc" target="_blank" rel="noopener">The End of Boss Culture</a></h3>
-        <p class="article-excerpt">The workforce doesn't want bosses. They want leaders.</p>
-      </div>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/more-overlords-chris-mccann-mqhgc" target="_blank" rel="noopener">No More Overlords</a></h3>
-        <p class="article-excerpt">People don't want more oversight. They want something real. Leaders, not bosses. Guides, not gatekeepers.</p>
-      </div>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/when-leader-changes-shouldnt-change-too-chris-mccann-plotc" target="_blank" rel="noopener">When the Leader Changes, Shouldn't They Change Too?</a></h3>
-        <p class="article-excerpt">There's a missing perspective: when we as leaders are hired, how do we adapt to the teams we inherit?</p>
-      </div>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/empathetic-leadership-key-unlocking-authentic-influence-chris-mccann-eoxbc" target="_blank" rel="noopener">Empathetic Leadership</a></h3>
-        <p class="article-excerpt">The leaders who actually shift rooms aren't performing authority. They're present.</p>
-      </div>
-
-      <h3 class="theme-label">On the Search</h3>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/leadership-entangled-discovering-parallels-between-quantum-mccann" target="_blank" rel="noopener">Leadership Entangled: Quantum Theory and Leadership</a></h3>
-        <p class="article-excerpt">How particles stay connected across distance. Teams do the same thing. We just don't have language for it yet.</p>
-      </div>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/art-zen-sales-leadership-how-remove-expectations-achieve-chris-mccann-1f" target="_blank" rel="noopener">The Art of Zen Sales Leadership</a></h3>
-        <p class="article-excerpt">Quotas, pipeline, forecast calls. And then the Tao Te Ching on my nightstand. Two worlds that shouldn't fit together.</p>
-      </div>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/sales-leadership-cosmic-dance-how-tango-paradoxes-win-chris-mccann" target="_blank" rel="noopener">Sales Leadership and the Cosmic Dance</a></h3>
-        <p class="article-excerpt">I stopped trying to resolve the tension and started working inside it.</p>
-      </div>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/yin-tonic-leading-empathy-chris-mccann" target="_blank" rel="noopener">Yin and Tonic: Leading with Empathy</a></h3>
-        <p class="article-excerpt">There's another dimension to sales leadership. Quieter, harder to measure, and essential.</p>
-      </div>
-
-      <h3 class="theme-label">On Failure &amp; Transition</h3>
-      <div class="article-item">
-        <h3><a href="https://www.linkedin.com/pulse/living-life-beyond-platitudes-path-impactful-chris-mccann" target="_blank" rel="noopener">Living a Life Beyond Platitudes</a></h3>
-        <p class="article-excerpt">The gap between what we say and what we actually do. That gap is where leadership lives.</p>
-      </div>
-
-      <p style="margin-top: 2rem;"><a class="inline-link" href="https://www.linkedin.com/newsletters/field-notes-7050474114494451713/" target="_blank" rel="noopener">View full archive on LinkedIn &rarr;</a></p>
-    </div>
-  </section>
-
-  <div class="divider"><span class="colophon"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="0" width="8.49" height="8.49" rx="1" transform="rotate(45 6 0)" fill="none" stroke="#ccc" stroke-width="1"/></svg></span></div>
+{% block scripts %}
+<script>
+document.getElementById('subBandForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('bandEmail').value.trim();
+  const btn = document.getElementById('bandBtn');
+  if (!email) return;
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/.netlify/functions/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email })
+    });
+    if (res.ok) {
+      document.getElementById('subBandForm').style.display = 'none';
+      document.getElementById('bandSuccess').style.display = 'block';
+    } else {
+      document.getElementById('bandError').style.display = 'block';
+      btn.textContent = 'I’M IN'; btn.disabled = false;
+    }
+  } catch (err) {
+    document.getElementById('bandError').style.display = 'block';
+    btn.textContent = 'I’M IN'; btn.disabled = false;
+  }
+});
+</script>
 {% endblock %}
